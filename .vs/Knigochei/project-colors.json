@@ -1,5 +1,11 @@
 {
   "Version": 1,
-  "ProjectMap": {},
-  "NextColorIndex": 0
+  "ProjectMap": {
+    "8258ab03-3b6b-4a06-9515-5487d2185168": {
+      "ProjectGuid": "8258ab03-3b6b-4a06-9515-5487d2185168",
+      "DisplayName": "Knigochei",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
 }

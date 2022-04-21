@@ -1,8 +1,23 @@
+using Knigochei.UnitOfWorkDapper;
+using Microsoft.Extensions.Configuration;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-//builder.Services.AddScoped<>
+
+
+
+var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+
+var connectionString = config.GetConnectionString("Default Connection");
+
+
+Console.WriteLine($"Connection String: {connectionString}");
+
+
+builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>(uow => new UnitOfWork(connectionString));
 
 var app = builder.Build();
 
@@ -10,11 +25,11 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+
 
 app.UseStaticFiles();
 

@@ -1,12 +1,12 @@
-﻿using Knigochei.Repository.Book;
+﻿using Knigochei.Repository.BookRepo;
+
+
 
 namespace Knigochei.UnitOfWorkDapper
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork
     {
-        
         IBookRepository BookRepository { get; set; }
         void Commit();
-
     }
 }

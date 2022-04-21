@@ -1,34 +1,28 @@
-﻿using Knigochei.Repository.Book;
-using Dapper;
+﻿using Knigochei.Repository.BookRepo;
 using System.Data;
 using System.Data.SqlClient;
 
 
 namespace Knigochei.UnitOfWorkDapper
 {
-    public class UnitOfWork: IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private IDbConnection _connection;
         private IDbTransaction _transaction;
         private IBookRepository _bookRepository;
         private bool _disposed;
 
-        public IBookRepository BookRepository { get => _bookRepository ?? (_bookRepository = new BookRepository(_transaction); }
-        
 
         public UnitOfWork(string connectionString)
         {
-            _connection = new SqlConnection();
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+            _connection = sqlConnection;
             _connection.Open();
             _transaction = _connection.BeginTransaction();
+
         }
 
-
-        private void resetRepositories()
-        {
-            _bookRepository = null;
-        }
-
+        public IBookRepository BookRepository { get => _bookRepository ?? (_bookRepository = new BookRepository(_transaction)); set => _bookRepository = value; }
 
         public void Commit()
         {
@@ -45,8 +39,13 @@ namespace Knigochei.UnitOfWorkDapper
             {
                 _transaction.Dispose();
                 _transaction = _connection.BeginTransaction();
-                resetRepositories();
+                //resetRepositories();
             }
+        }
+
+        private void resetRepositories()
+        {
+            _bookRepository = null;
         }
 
         public void Dispose()
@@ -80,7 +79,6 @@ namespace Knigochei.UnitOfWorkDapper
         {
             dispose(false);
         }
-
 
     }
 }
