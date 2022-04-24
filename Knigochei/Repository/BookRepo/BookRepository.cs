@@ -30,12 +30,19 @@ namespace Knigochei.Repository.BookRepo
             return Connection.Query<Book>(
                 "SELECT * FROM Book",
                 transaction: Transaction
-            ).ToList();
+            ); ;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            int affectedRowsNum = Connection.Execute(
+                "DELETE FROM Book " +
+                "WHERE Id = @id",
+                new { id },
+                transaction: Transaction
+            );
+
+            Console.WriteLine($"Affected Rows: {affectedRowsNum}");
         }
 
         public void Delete(Book entity)

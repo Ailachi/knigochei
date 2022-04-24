@@ -20,13 +20,19 @@ namespace Knigochei.Controllers
 
         public IActionResult Index()
         {
-            IBookRepository bookRepository = _uow.BookRepository;
-            bookRepository.Add(new Book("Title2", "BookDescription", 1921, 2000, 1, 1, 8.4f));
-
-            ViewBag.books = bookRepository.All();
-            
-
             return View();
+        }
+
+        public IActionResult DeleteBook(int bookId)
+        {
+            IBookRepository bookRepository = _uow.BookRepository;
+            bookRepository.Delete(bookId);
+
+            List<Book> books = bookRepository.All().ToList();
+
+            _uow.Commit();
+
+            return View(books);
         }
 
         public IActionResult Privacy()

@@ -11,13 +11,8 @@ builder.Services.AddControllersWithViews();
 
 var config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
 
-var connectionString = config.GetConnectionString("Default Connection");
-
-
-Console.WriteLine($"Connection String: {connectionString}");
-
-
-builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>(uow => new UnitOfWork(connectionString));
+// UOW Singleton
+builder.Services.AddSingleton<IUnitOfWork, UnitOfWork>(uow => new UnitOfWork(config.GetConnectionString("MainConnection")));
 
 var app = builder.Build();
 

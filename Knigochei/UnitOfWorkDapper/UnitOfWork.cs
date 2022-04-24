@@ -39,7 +39,7 @@ namespace Knigochei.UnitOfWorkDapper
             {
                 _transaction.Dispose();
                 _transaction = _connection.BeginTransaction();
-                //resetRepositories();
+                resetRepositories();
             }
         }
 

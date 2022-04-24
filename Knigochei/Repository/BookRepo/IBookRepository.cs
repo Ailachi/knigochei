@@ -13,5 +13,6 @@ namespace Knigochei.Repository.BookRepo
         Book Find(int id);
         Book FindByTitle(string title);
         void Update(Book entity);
+
     }
 }
