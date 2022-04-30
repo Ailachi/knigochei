@@ -32,3 +32,37 @@ C:\Users\Anuar\source\repos\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.dll
 C:\Users\Anuar\source\repos\Knigochei\Knigochei\obj\Debug\net6.0\ref\Knigochei.dll
 C:\Users\Anuar\source\repos\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.pdb
 C:\Users\Anuar\source\repos\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.genruntimeconfig.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\appsettings.Development.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\appsettings.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Knigochei.staticwebassets.runtime.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Knigochei.exe
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Knigochei.deps.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Knigochei.runtimeconfig.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Knigochei.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\ref\Knigochei.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Knigochei.pdb
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Dapper.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.csproj.AssemblyReference.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.GeneratedMSBuildEditorConfig.editorconfig
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.AssemblyInfoInputs.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.AssemblyInfo.cs
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.csproj.CoreCompileInputs.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.MvcApplicationPartsAssemblyInfo.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.RazorAssemblyInfo.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.RazorAssemblyInfo.cs
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\staticwebassets.build.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\staticwebassets.development.json
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\scopedcss\bundle\Knigochei.styles.css
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\scopedcss\projectbundle\Knigochei.bundle.scp.css
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.csproj.CopyComplete
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\ref\Knigochei.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.pdb
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.genruntimeconfig.cache

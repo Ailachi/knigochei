@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+
+* {
+    /*border: 2px solid yellow;*/
+    font-size: 1em;
+}
+
+body {
+    margin: 0 !important;
+}
+
+.container-fluid {
+    padding: 0;
+    margin-right: 0;
+}
+
+.nav-item {
+    margin-right: 15%;
+    font-size: 1.6em;
+}
+
+#pre-right {
+    margin-left: 40%;
+    padding-right: 0%;
+}
+
+#right {
+    float: right;
+}
+
+.navbar, body {
+    font-family: 'Merriweather', serif;
+}
+
+    .navbar svg {
+        fill: #434242;
+    }
+
+svg:hover {
+    fill: #740808;
+}
+
+.navbar a {
+    color: #434242;
+}
+
+.nav-item a:hover {
+    color: #740808 !important;
+}
+
+#present {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    #present h1 {
+        margin-top: 20%;
+        color: #740808;
+    }
+
+.subdiv {
+    border: 2px solid grey;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pic {
+    background-image: url(../img/books1.jpeg);
+    height: 550px;
+    border-top-right-radius: 300px;
+    border-bottom-right-radius: 300px;
+}
+
+.pic-left {
+    background-image: url(../img/books2.jpg);
+    height: 550px;
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
+}
+
+.parallax {
+    background-image: url('../img/library.jpg');
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%);
+}
+
+.card-img-top {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    background-color: #740808;
+    color: white;
+    border-radius: 15px;
+    transition: all 200ms ease-in;
+    border: 3px solid #740808;
+}
+
+    .btn:hover {
+        background-color: white;
+        color: #740808;
+    }
+
+.row {
+    /*border: 2px solid black;*/
+    width: 100%;
+    margin-left: 0;
+}
+
+.cardd {
+    height: 670px;
+}
+
+#bubble {
+    border-radius: 20px;
+    height: fit-content;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.85) 100%);
+}
+
+footer {
+    color: #434242;
+    background-color: white;
+}
+
+    footer svg {
+        vertical-align: middle;
+    }
+
+    footer .lbl {
+        float: left;
+        margin-top: 2.5%;
+    }
+
+#params {
+    background-color: #f0f0f0;
+}
+
+    #params label {
+        float: left;
+    }
+
+.inp {
+    width: 65%;
+    float: right;
+}
+
+#check {
+    float: right;
+}
+
+input[type="text"] {
+    border: none;
+    border-radius: 10px;
+}
