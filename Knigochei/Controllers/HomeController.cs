@@ -23,6 +23,11 @@ namespace Knigochei.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
         public IActionResult DeleteBook(int bookId)
         {
             IBookRepository bookRepository = _uow.BookRepository;

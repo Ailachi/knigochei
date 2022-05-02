@@ -1,4 +1,5 @@
 ﻿using Knigochei.Repository.BookRepo;
+using Knigochei.Repository.GenreRepo;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -10,6 +11,7 @@ namespace Knigochei.UnitOfWorkDapper
         private IDbConnection _connection;
         private IDbTransaction _transaction;
         private IBookRepository _bookRepository;
+        private IGenreRepository _genreRepository;
         private bool _disposed;
 
 
@@ -23,6 +25,7 @@ namespace Knigochei.UnitOfWorkDapper
         }
 
         public IBookRepository BookRepository { get => _bookRepository ?? (_bookRepository = new BookRepository(_transaction)); set => _bookRepository = value; }
+        public IGenreRepository GenreRepository { get => _genreRepository ?? (_genreRepository = new GenreRepository(_transaction)); set => _genreRepository = value; }
 
         public void Commit()
         {

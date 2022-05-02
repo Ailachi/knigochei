@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "v+sgMAeNlBeq2v1EV1+ROpkizdhS9pN6eoP+mIdURcg=",
+  "Hash": "rlcyBIZgvOc6JucLmeAbaDyOzJuE5wfr56PCUaxIzm4=",
   "Source": "Knigochei",
   "BasePath": "_content/Knigochei",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\bat.jpg",
+      "SourceId": "Knigochei",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\",
+      "BasePath": "_content/Knigochei",
+      "RelativePath": "images/bat.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bat.jpg"
+    },
+    {
       "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\books1.jpeg",
       "SourceId": "Knigochei",
       "SourceType": "Discovered",
@@ -151,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\fall.jpg"
+    },
+    {
+      "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\HPotterPhStone.jpg",
+      "SourceId": "Knigochei",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\",
+      "BasePath": "_content/Knigochei",
+      "RelativePath": "images/HPotterPhStone.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\HPotterPhStone.jpg"
     },
     {
       "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\knigochei.svg",
