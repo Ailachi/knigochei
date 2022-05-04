@@ -1,5 +1,6 @@
 ﻿using Knigochei.Repository.BookRepo;
 using Knigochei.Repository.GenreRepo;
+using Knigochei.Repository.UserRepo;
 
 namespace Knigochei.UnitOfWorkDapper
 {
@@ -7,6 +8,7 @@ namespace Knigochei.UnitOfWorkDapper
     {
         IBookRepository BookRepository { get; set; }
         IGenreRepository GenreRepository{ get; set; }
+        IUserRepository UserRepository { get; set; }
         void Commit();
     }
 }
