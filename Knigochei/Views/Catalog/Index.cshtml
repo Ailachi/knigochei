@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Book>
+﻿@model Knigochei.Forms.CatalogFilterFormModel
+
 
 
 <div class="container-fluid">
@@ -8,24 +9,25 @@
 					{
 						<div class="row"> 
 							<label class="col-md-4 mt-2 mr-2"> От:</label>
-							<input type="text" name="min" class="inp mt-2 col-md-9" pattern="[0-9]+" placeholder="1000">
+							<input type="text" asp-for="PriceMin" class="inp mt-2 col-md-9" pattern="[0-9]+" placeholder="1000">
 						</div> <br>
 						<div class="row"> 
 							<label class="col-md-4 mt-2 mr-2"> До:</label>
-							<input type="text" name="max" class="inp mt-2" pattern="[0-9]+" placeholder="5000"> 
+							<input type="text" asp-for="PriceMax" class="inp mt-2" pattern="[0-9]+" placeholder="5000"> 
 						</div><br>
 						<div class="row"> 
 							<label class="col-md-4 mt-2 "> Жанр: </label>
-							<select name="genres" id="genres" class="inp mt-2">
+							<select asp-for="GenreId" class="inp mt-2">
 								@foreach(var genre in ViewData["genres"] as List<Genre>)
 								{
 									<option value=@genre.Id>@genre.GenreName</option>
 								}
+								<option value=0 >Все</option>
 							</select> 
 						</div> <br>
 							<div class="row"> 
 								<label class="col-md-9 mt-2 ms-1">По&nbsp;убыванию:</label> 
-								<input type="checkbox" name="desc" id="check" class="col-md-2 mt-2"> 
+								<input type="checkbox" asp-for="OrderByPriceDesc" class="col-md-2 mt-2"> 
 							</div> <br>
 								<input type="submit" name="settings" value="Применить">
 					}
@@ -41,6 +43,7 @@
 								
 									<div class="card-body">
 										<p class="card-text">@book.Title</p>
+										<p class="card-text">Price: @book.Price</p>
 										<p class="card-text">@book.BookDescription</p>
 									</div>
 								</div>
