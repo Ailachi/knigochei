@@ -15,6 +15,17 @@
     
 </head>
 <body>
+	
+	@if(User.IsInRole("Admin"))
+	{
+		<h2>Admin</h2>
+	}
+
+	@if(User.IsInRole("Customer"))
+	{
+		<h2>Customer</h2>
+	}
+
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 			<div class="container-fluid">
@@ -34,22 +45,26 @@
 							<a class="nav-link @Html.ActiveClass("Home", "About")" asp-controller="Home" asp-action="About">О&nbsp;нас</a>
 						</li>
 						<li class="nav-item" id="pre-right">
-							<a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-basket2-fill" viewBox="0 0 16 16">
-								<path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"/>
-							</svg></a>
+							<a class="nav-link" href="#">
+								<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+									<path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383L5.93 1.757zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0v-2zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1z"/>
+								</svg>
+							</a>
 						</li>
-						<li class="nav-item" id="right">
-							<a class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle" viewBox="0 0 16 16">
-								<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-								<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-							</svg></a>
+						<li class="nav-item @Html.ActiveClass("Account", "Login")" id="right">
+							<a class="nav-link" asp-controller="Account" asp-action="Login">
+								<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-person-circle" viewBox="0 0 16 16">
+									<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+									<path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+								</svg>
+							</a>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
-    @RenderBody();
+    @RenderBody()
 
 	<footer class="container-fluid pb-4 pt-2">
 		<h3 class="text-center pt-3"> Мы всегда на связи:</h3> <br> <br>

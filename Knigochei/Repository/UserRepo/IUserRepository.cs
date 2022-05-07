@@ -10,6 +10,8 @@ namespace Knigochei.Repository.UserRepo
         void Delete(User user);
         User Find(int id);
         User FindByFirstName(string firstName);
+        User FindByEmail(string email);
+        User FindByEmailAndPassword(string email, string password);
         void Update(User user);
     }
 }

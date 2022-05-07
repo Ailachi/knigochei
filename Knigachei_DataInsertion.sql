@@ -6,7 +6,8 @@ values
 insert into Gender(GenderName)
 values
 ('Female'),
-('Male');
+('Male'),
+('Unknown');
 
 
 
@@ -36,6 +37,10 @@ values
 
 
 
-select * from Book
+select * from Users
 
-PRINT 'Harry Potter and the Philosopher''s Stone'
+insert into Users(Email, UserPassword, FirstName, LastName, GenderId, RoleId)
+values 
+('anuar@mail.ru', 'anuar123', 'Anuar	Bora',	2, 1),
+('elvira@mail.ru', 'elvira123', 'Elvira','Nugmanova', 1, 2);
+

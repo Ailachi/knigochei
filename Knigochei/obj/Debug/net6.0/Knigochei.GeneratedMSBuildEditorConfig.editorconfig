@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/3rd Course/2nd semester/Application development foundation (.NET)/Knigochei/Knigochei/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/3rd Course/2nd semester/Application development foundation (.NET)/Knigochei/Knigochei/Views/Account/LoginAndRegistration.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbkFuZFJlZ2lzdHJhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -37,6 +41,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/3rd Course/2nd semester/Application development foundation (.NET)/Knigochei/Knigochei/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/3rd Course/2nd semester/Application development foundation (.NET)/Knigochei/Knigochei/Views/Home/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/3rd Course/2nd semester/Application development foundation (.NET)/Knigochei/Knigochei/Views/Shared/Error.cshtml]

@@ -8,24 +8,27 @@
 					</div>
 
 					<div id="SignUp" class="tabcontent text-center mt-5 pb-3">
-						<form class="sign pt-5 pb-5">
+						<form class="sign pt-5 pb-5" asp-controller="Account" asp-action="SignUp" method="post">
+						<h4>@ViewData["RegistrationError"]</h4>
 						<h3>SIGN UP</h3>
 							<label for="email">Email:</label>
-							<input type="text" id="emailLogin" name="email" placeholder="John@gmail.com"><br>
+							<input type="text" id="emailSignUp" name="email" placeholder="John@gmail.com"><br>
 							<label for="passw">Password:</label>
-							<input type="password" id="passwLogin" name="passw" ><br><br>
-							<input type="submit" value="Sign Up">
+							<input type="password" id="passwordSignUp" name="password" ><br><br>
+							<input type="submit" name="SignupSubmit">
 						</form>
 					</div>
 
 					<div id="SignIn" class="tabcontent text-center mt-5 pb-3">
-						<form class="sign pt-5 pb-5">
+						<form class="sign pt-5 pb-5" asp-controller="Account" asp-action="Login" method="post">
+						<h4>@ViewData["LoginError"]</h4>
 						<h3>SIGN IN</h3>
 							<label for="email">Email:</label>
-							<input type="text" id="email" name="email" placeholder="John@gmail.com"><br>
+							<input type="text" id="emailLogin" name="email" placeholder="John@gmail.com"><br>
 							<label for="passw">Password:</label>
-							<input type="password" id="passw" name="passw" ><br><br>
-							<input type="submit" value="Sign Up">
+							<input type="password" id="passwordLogin" name="password" >
+							<br><br>
+							<input type="submit" name="LoginSubmit">
 						</form>
 					</div>
 				</div>
