@@ -22,11 +22,11 @@ namespace Knigochei.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "Admin")]
         public IActionResult About()
         {
             return View();
         }
+        [Authorize(Roles="Customer,Admin")]
         public IActionResult Profile()
         {
             return View();
