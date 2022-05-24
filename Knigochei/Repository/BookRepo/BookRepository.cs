@@ -30,7 +30,7 @@ namespace Knigochei.Repository.BookRepo
             return Connection.Query<Book>(
                 "SELECT * FROM Book",
                 transaction: Transaction
-            ); ;
+            );
         }
 
         public void Delete(int id)
@@ -42,7 +42,6 @@ namespace Knigochei.Repository.BookRepo
                 transaction: Transaction
             );
 
-            Console.WriteLine($"Affected Rows: {affectedRowsNum}");
         }
 
         public void Delete(Book entity)

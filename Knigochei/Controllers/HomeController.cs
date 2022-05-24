@@ -26,22 +26,11 @@ namespace Knigochei.Controllers
         {
             return View();
         }
+
         [Authorize(Roles="Customer,Admin")]
         public IActionResult Profile()
         {
             return View();
-        }
-
-        public IActionResult DeleteBook(int bookId)
-        {
-            IBookRepository bookRepository = _uow.BookRepository;
-            bookRepository.Delete(bookId);
-
-            List<Book> books = bookRepository.All().ToList();
-
-            _uow.Commit();
-
-            return View(books);
         }
 
         public IActionResult Privacy()
