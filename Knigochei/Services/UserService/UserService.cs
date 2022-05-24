@@ -25,7 +25,6 @@ namespace Knigochei.Services.UserService
         {
             IUserRepository repo = _uow.UserRepository;
             User user = repo.FindByEmailAndPassword(email, password);
-            
 
             return user;
         }

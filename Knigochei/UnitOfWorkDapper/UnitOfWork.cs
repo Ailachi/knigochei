@@ -55,6 +55,9 @@ namespace Knigochei.UnitOfWorkDapper
         private void resetRepositories()
         {
             _bookRepository = null;
+            _authorRepository = null;
+            _genreRepository = null;
+            _userRepository = null;
         }
 
         public void Dispose()

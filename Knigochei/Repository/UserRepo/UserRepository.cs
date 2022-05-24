@@ -63,11 +63,13 @@ namespace Knigochei.Repository.UserRepo
 
         public User FindByEmailAndPassword(string email, string password)
         {
-            return Connection.Query<User>(
-                sql:"SELECT * FROM Users u WHERE u.Email = @email AND u.UserPassword = @password",
-                param:new { @email = email, @password = password },
+            User user = Connection.QuerySingleOrDefault<User>(
+                sql: "SELECT * FROM Users u WHERE u.Email = @email AND u.UserPassword = @password",
+                param: new { @email = email, @password = password },
                 transaction: Transaction
-            ).FirstOrDefault();
+            );
+
+            return user;
         }
 
         public User FindByFirstName(string firstName)

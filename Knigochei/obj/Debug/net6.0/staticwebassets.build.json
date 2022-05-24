@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3kLnD/F4Hl3HRzIo+H+sG9YafDAsebHNuXofwNmwenY=",
+  "Hash": "2DHqfhLvA+VvcXxGipKS78bIbYKlfcF4i+uYVDkRvkU=",
   "Source": "Knigochei",
   "BasePath": "_content/Knigochei",
   "Mode": "Default",
@@ -102,6 +102,23 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
+      "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\akutagawa.jpg",
+      "SourceId": "Knigochei",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\",
+      "BasePath": "_content/Knigochei",
+      "RelativePath": "images/akutagawa.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\akutagawa.jpg"
+    },
+    {
       "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\bat.jpg",
       "SourceId": "Knigochei",
       "SourceType": "Discovered",
@@ -168,6 +185,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\books2.jpg"
+    },
+    {
+      "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\camus.jpg",
+      "SourceId": "Knigochei",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\",
+      "BasePath": "_content/Knigochei",
+      "RelativePath": "images/camus.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\camus.jpg"
     },
     {
       "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\fall.jpg",
@@ -255,6 +289,23 @@
       "OriginalItemSpec": "wwwroot\\images\\lotr.jpg"
     },
     {
+      "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\nesbo.jpg",
+      "SourceId": "Knigochei",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\",
+      "BasePath": "_content/Knigochei",
+      "RelativePath": "images/nesbo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\nesbo.jpg"
+    },
+    {
       "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\persona.png",
       "SourceId": "Knigochei",
       "SourceType": "Discovered",
@@ -338,6 +389,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\rasomon.jpg"
+    },
+    {
+      "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\rowling.jpg",
+      "SourceId": "Knigochei",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\",
+      "BasePath": "_content/Knigochei",
+      "RelativePath": "images/rowling.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\rowling.jpg"
     },
     {
       "Identity": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\wwwroot\\images\\tolkien.jpg",

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Knigochei.Services.UserService;
 using Knigochei.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Knigochei.Controllers
 {
@@ -68,7 +69,7 @@ namespace Knigochei.Controllers
 
             User user = _userService.GetUserByEmailAndPassword(model.Email, model.Password);
             
-            if (user is null)
+            if (user is null || user.Id == 0)
             {
                 ViewData["LoginError"] = "Incorrect email or password!";
                 Console.WriteLine("Incorrect email or password!");
@@ -86,6 +87,12 @@ namespace Knigochei.Controllers
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
             return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles = "Customer,Admin")]
+        public IActionResult Profile()
+        {
+            return View();
         }
 
         public async Task<IActionResult> LogOut()

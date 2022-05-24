@@ -27,12 +27,6 @@ namespace Knigochei.Controllers
             return View();
         }
 
-        [Authorize(Roles="Customer,Admin")]
-        public IActionResult Profile()
-        {
-            return View();
-        }
-
         public IActionResult Privacy()
         {
             return View();
