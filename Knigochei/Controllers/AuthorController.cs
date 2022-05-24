@@ -17,7 +17,7 @@ namespace Knigochei.Controllers
         {
             List<Author> authors = _authorService.GetAllAuthors();
 
-            return View();
+            return View(authors);
         }
 
     }

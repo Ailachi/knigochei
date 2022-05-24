@@ -18,11 +18,11 @@
 						<div class="row"> 
 							<label class="col-md-4 mt-2 "> Жанр: </label>
 							<select asp-for="GenreId" class="inp mt-2">
+								<option value=0>Все</option>
 								@foreach(var genre in ViewData["genres"] as List<Genre>)
 								{
 									<option value=@genre.Id>@genre.GenreName</option>
 								}
-								<option value=0 >Все</option>
 							</select> 
 						</div> <br>
 							<div class="row"> 
@@ -39,7 +39,7 @@
 								 
 								<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
 
-								<img src=@Url.Content(@book.CoverImagePath) style="width: 50%" class="card-img-top" alt="@book.Title">
+								<img src=@Url.Content(book.CoverImagePath) style="width: 50%" class="card-img-top" alt="@book.Title">
 								
 									<div class="card-body">
 										<p class="card-text">@book.Title</p>
