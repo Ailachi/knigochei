@@ -7,9 +7,9 @@
         public string BookDescription { get; set; }
         public int PublishedYear { get; set; }
         public int Price { get; set; }
+        public string CoverImagePath { get; set; }
         public int GenreId { get; set; }
         public int AuthorId { get; set; }
-
         public float BookRank { get; set; }
 
         public Book() { }

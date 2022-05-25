@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Anuar\\source\\repos\\Knigochei\\Knigochei\\Knigochei.csproj": {}
+    "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\Knigochei.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Anuar\\source\\repos\\Knigochei\\Knigochei\\Knigochei.csproj": {
+    "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\Knigochei.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Anuar\\source\\repos\\Knigochei\\Knigochei\\Knigochei.csproj",
+        "projectUniqueName": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\Knigochei.csproj",
         "projectName": "Knigochei",
-        "projectPath": "C:\\Users\\Anuar\\source\\repos\\Knigochei\\Knigochei\\Knigochei.csproj",
+        "projectPath": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\Knigochei.csproj",
         "packagesPath": "C:\\Users\\Anuar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Anuar\\source\\repos\\Knigochei\\Knigochei\\obj\\",
+        "outputPath": "D:\\3rd Course\\2nd semester\\Application development foundation (.NET)\\Knigochei\\Knigochei\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Anuar\\AppData\\Roaming\\NuGet\\NuGet.Config",

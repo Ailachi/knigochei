@@ -1,9 +1,18 @@
 ﻿using Knigochei.Models;
+using Knigochei.Repository.BookRepo;
+using Knigochei.UnitOfWorkDapper;
 
 namespace Knigochei.Services.BookService
 {
     public class BookService : IBookService
     {
+        private IUnitOfWork _uow;
+
+        public BookService(IUnitOfWork uow)
+        {
+            _uow = uow;
+        }
+
         public void AddBook(Book book)
         {
             throw new NotImplementedException();
@@ -16,7 +25,10 @@ namespace Knigochei.Services.BookService
 
         public List<Book> GetAllBooks()
         {
-            throw new NotImplementedException();
+            IBookRepository repo = _uow.BookRepository;
+            List<Book> books = repo.All().ToList();
+
+            return books;
         }
 
         public void GetBookById(int bookId)

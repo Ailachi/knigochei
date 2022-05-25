@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Knigochei.UnitOfWorkDapper;
 using Knigochei.Repository.BookRepo;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Knigochei.Controllers
 {
@@ -19,6 +19,15 @@ namespace Knigochei.Controllers
         }
 
         public IActionResult Index()
+        {
+            return View();
+        }
+        public IActionResult About()
+        {
+            return View();
+        }
+        [Authorize(Roles="Customer,Admin")]
+        public IActionResult Profile()
         {
             return View();
         }

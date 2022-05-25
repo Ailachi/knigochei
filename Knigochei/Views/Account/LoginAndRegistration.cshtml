@@ -1,0 +1,57 @@
+﻿<div class="parallax pt-5 pb-5 container-fluid" style="height: 700px;">
+			<div class="row mt-5 pt-3">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="tab text-center pt-3 pb-3">
+						<button class="tablinks pt-2 pb-2" onclick="openCity(event, 'SignUp')">Sign Up</button>
+						<button class="tablinks pt-2 pb-2 ms-5" onclick="openCity(event, 'SignIn')">Sign In</button>
+					</div>
+
+					<div id="SignUp" class="tabcontent text-center mt-5 pb-3">
+						<form class="sign pt-5 pb-5" asp-controller="Account" asp-action="SignUp" method="post">
+						<h4>@ViewData["RegistrationError"]</h4>
+						<h3>SIGN UP</h3>
+							<label for="email">Email:</label>
+							<input type="text" id="emailSignUp" name="email" placeholder="John@gmail.com"><br>
+							<label for="passw">Password:</label>
+							<input type="password" id="passwordSignUp" name="password" ><br><br>
+							<input type="submit" name="SignupSubmit">
+						</form>
+					</div>
+
+					<div id="SignIn" class="tabcontent text-center mt-5 pb-3">
+						<form class="sign pt-5 pb-5" asp-controller="Account" asp-action="Login" method="post">
+						<h4>@ViewData["LoginError"]</h4>
+						<h3>SIGN IN</h3>
+							<label for="email">Email:</label>
+							<input type="text" id="emailLogin" name="email" placeholder="John@gmail.com"><br>
+							<label for="passw">Password:</label>
+							<input type="password" id="passwordLogin" name="password" >
+							<br><br>
+							<input type="submit" name="LoginSubmit">
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
+
+		<br> <br> <br> <br> <br> <br> <br> <br>
+
+		<script>
+			function openCity(evt, eventName) {
+				var i, tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName("tabcontent");
+				for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+				}
+				tablinks = document.getElementsByClassName("tablinks");
+				for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+				}
+				document.getElementById(eventName).style.display = "block";
+				evt.currentTarget.className += " active";
+			}
+		</script>

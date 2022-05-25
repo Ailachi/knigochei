@@ -2,3 +2,116 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 pic">
+				</div>
+				<div class="col-md-6 text-center" id="present">
+					<h1> Мы дарим магию книг </h1>
+					<hr class="subdiv">
+					<h3 style="text-align: center;"> Давай колдовать с нами</h3>
+					<a href="#carouselid"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#434242" class="bi bi-caret-down-fill" id="arrow" viewBox="0 0 16 16">
+						<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+					</svg> </a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 text-center" id="present">
+					<h1> Уже знаком с нашей магией? </h1>
+					<hr class="subdiv">
+					<h3 style="text-align: center;"> Покажи как колдовать другим!</h3>
+					<a href="#carouselid"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#434242" class="bi bi-caret-down-fill" id="arrow" viewBox="0 0 16 16">
+						<path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+					</svg></a>
+				</div>
+				<div class="col-md-6 pic-left mr-0">
+				</div>
+			</div>
+
+			<br> <br> <br> <br>
+
+			<div class="parallax pt-5 pb-5 container-fluid" >
+				<h1 class="text-center pt-5 pb-2" style="color: white;"> Предлагаем почитать: </h1>
+
+				<div class="row">
+					<div class="col-md-2"></div>
+
+					<div id="carouselExampleIndicators" class="carousel slide mt-5 pt-5 pb-3 col-md-5" data-bs-ride="carousel">
+						<div class="carousel-indicators">
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+						</div>
+						<div class="carousel-inner" id="carouselid">
+
+							<div class="carousel-item">
+								<div class="card col-md-12 pt-3 cardd">
+									<img class="card-img-top" src="~/images/lotr.jpg" style="width: 30%" alt="Card image cap">
+									<div class="card-body text-center">
+										<h5 class="card-title">Властелин Колец</h5>
+										<h6 class="card-subtitle"> Джон Рональд Руэл Толкин </h6>
+										<hr class="subdiv">
+										<p class="card-text"><q>
+											Хоббит Фродо Бэггинс, племянник знаменитого Бильбо Бэггинса, отправляется в поход, от завершения которого зависит судьба всего Средиземья. Кольцо, оставленное ему дядей, разыскивает темный властелин Мордора, и это кольцо может решить исход кровопролитной войны, охватившей мирный некогда край. В поход вместе с Фродо выступают чародей Гэндальф и представители разных земель и народов Средиземья
+										</q></p>
+										<a href="#" class="btn">Показать</a>
+									</div>
+								</div>
+							</div>
+
+							<div class="carousel-item active">
+								<div class="card col-md-12 pt-3 cardd">
+									<img class="card-img-top" src="~/images/fall.jpg" style="width: 30%" alt="Card image cap">
+									<div class="card-body text-center">
+										<h5 class="card-title">Падение</h5>
+										<h6 class="card-subtitle"> Альбер Камю  </h6>
+										<hr class="subdiv">
+										<p class="card-text"><q>Книга затрагивает темы невиновности и вины, свободы, и бессмысленности человеческого существования. Первичная цель Камю состоит в том, чтобы привести читателя к заключению, что жизнь является полностью абсурдной. <br> В хвалебной речи Жан-Поль Сартр описал повесть, как «возможно, самую красивую и наименее понятую» книгу Камю. </q></p>
+										<a href="#" class="btn">Показать</a>
+									</div>
+								</div>
+							</div>
+
+
+							<div class="carousel-item">
+								<div class="card col-md-12 pt-3 cardd">
+									<img class="card-img-top" src="~/images/rasomon.jpg" style="width: 30%" alt="Card image cap">
+									<div class="card-body text-center">
+										<h5 class="card-title">Расёмон</h5>
+										<h6 class="card-subtitle"> Рюноске Акутагава  </h6>
+										<hr class="subdiv">
+										<p class="card-text"><q>Киото в упадке — в течение последних двух-трёх лет на столицу обрушивались различные бедствия: землетрясение, ураган, пожар, голод и мор. За порядком стало некому следить, на улицах появились воры и разбойники.
+											<br>
+										Некий слуга, оставшись без крова над головой, решает переждать дождь под воротами Расёмон. Его терзают мысли о том, как ему дальше жить: умереть от голода или пойти воровать. </q></p>
+										<a href="#" class="btn">Показать</a>
+									</div>
+								</div>
+							</div>
+
+
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Пред.</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">След.</span>
+						</button>
+					</div>
+
+					<div class="col-md-4 mt-5 pt-5 text-center">
+						<img src="~/images/persona.png" style="width: 50%">
+						<br>
+						<h5 id="bubble" class="mt-1 pt-3 pb-3">
+							Не уверен, что почитать? <br> Глянь-ка на наши тематические подборки! <br>
+							<a href="#" class="btn mt-4"> А погляжу-ка </a>
+						</h5>
+					</div>
+
+				</div>
+			</div>
+
+		</div>

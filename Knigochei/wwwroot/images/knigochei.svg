@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="533" height="181" viewBox="0 0 533 181">
+  <defs>
+    <clipPath id="clip-История_в_Instagram_1">
+      <rect width="533" height="181"/>
+    </clipPath>
+  </defs>
+  <g id="История_в_Instagram_1" data-name="История в Instagram – 1" clip-path="url(#clip-История_в_Instagram_1)">
+    <g id="Сгруппировать_1" data-name="Сгруппировать 1">
+      <text id="Книг_чей" data-name="Книг    чей" transform="translate(37 114)" fill="#740808" font-size="80" font-family="BookAntiqua-Bold, Book Antiqua" font-weight="700"><tspan x="0" y="0" xml:space="preserve">Книг    чей</tspan></text>
+      <g id="Контур_1" data-name="Контур 1" transform="translate(238 65.091)" fill="none">
+        <path d="M42.935,0C66.647,0,79.421,29.955,79.421,29.955S66.647,59.909,42.935,59.909,6.7,29.955,6.7,29.955,19.223,0,42.935,0Z" stroke="none"/>
+        <path d="M 42.93504333496094 8.999992370605469 C 29.63445281982422 8.999992370605469 20.37308502197266 23.20912170410156 16.7269287109375 29.95355033874512 C 20.3797607421875 36.71072387695313 29.63869094848633 50.90935516357422 42.93504333496094 50.90935516357422 C 56.23086929321289 50.90935516357422 65.61654663085938 36.75251007080078 69.35076904296875 29.96730041503906 C 65.59917449951172 23.19174575805664 56.15867614746094 8.999992370605469 42.93504333496094 8.999992370605469 M 42.93504333496094 -7.62939453125e-06 C 66.64740753173828 -7.62939453125e-06 79.42075347900391 29.95468139648438 79.42075347900391 29.95468139648438 C 79.42075347900391 29.95468139648438 66.64740753173828 59.90935516357422 42.93504333496094 59.90935516357422 C 19.22267913818359 59.90935516357422 6.699150085449219 29.95468139648438 6.699150085449219 29.95468139648438 C 6.699150085449219 29.95468139648438 19.22267913818359 -7.62939453125e-06 42.93504333496094 -7.62939453125e-06 Z" stroke="none" fill="#434242"/>
+      </g>
+      <g id="Эллипс_1" data-name="Эллипс 1" transform="translate(267 81)" fill="none" stroke="#434242" stroke-width="9">
+        <circle cx="14" cy="14" r="14" stroke="none"/>
+        <circle cx="14" cy="14" r="9.5" fill="none"/>
+      </g>
+      <line id="Линия_1" data-name="Линия 1" x2="15" y2="12" transform="translate(244.5 65.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_2" data-name="Линия 2" x2="6" y2="18" transform="translate(267.5 52.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_3" data-name="Линия 3" y1="18" x2="6" transform="translate(290.5 52.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_4" data-name="Линия 4" y1="16" x2="13" transform="translate(306.5 65.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_5" data-name="Линия 5" x1="14" y2="13" transform="translate(243.5 106.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_6" data-name="Линия 6" x1="5" y2="16" transform="translate(265.5 119.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_7" data-name="Линия 7" x2="8" y2="19" transform="translate(290.5 116.5)" fill="none" stroke="#434242" stroke-width="9"/>
+      <line id="Линия_8" data-name="Линия 8" x2="14" y2="15" transform="translate(305.5 104.5)" fill="none" stroke="#434242" stroke-width="9"/>
+    </g>
+  </g>
+</svg>
