@@ -1,13 +1,34 @@
 ﻿@model IEnumerable<Author>;
 
-
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: white;">
 	<div class="row text-center">
-		<div class="col-md-2 pt-3 pb-3">
-		</div>
-		<div class="col-md-8 mt-4 ">
-			<h2> Here is the selection of all of the authors available:</h2>
+		<div class="col-md-2 pt-3 pb-3" id="params">
+			<div class="row"> 
+				<label class="mt-2 mr-2"> Искать по фамилии:</label> <br>
+				<input type="text" name="min" class="mt-2" pattern="/^[A-Za-z]+$/" placeholder="Фамилия">
+			</div> <br>
+			<div class="row"> 
+				<label class="mt-2 mr-2"> Искать по имени:</label> <br>
+				<input type="text" name="max" class="mt-2" pattern="/^[A-Za-z]+$/" placeholder="Имя"> 
+			</div><br>
+			<div class="row"> 
+				<label class="col-md-4 mt-2 "> Жанр: </label>
+				<select name="genres" id="genres" class="inp mt-2">
+					<option value="volvo">Фантастика</option>
+					<option value="saab">Роман</option>
+					<option value="mercedes">Фэнтези</option>
+					<option value="audi">Философия</option>
+				</select> </div> <br>
+				<div class="row"> 
+					<label class="col-md-9 mt-2 ms-1">По&nbsp;убыванию:</label> 
+					<input type="checkbox" name="desc" id="check" class="col-md-2 mt-2"> 
+				</div> <br>
+					<input type="submit" name="settings" value="Применить">
+				</div>
+		<div class="col-md-8 mt-4 ps-5 ms-5">
+			<h2> Представляем Вашему вниманию авторов, чьи книги есть в нашей коллекции:</h2>
 			<div class="row ms-5 mt-5"> 
+				
 				@foreach(var author in Model) 
 				{
 					<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
@@ -20,10 +41,16 @@
 					</div>
 				}
 				
-			</div>
-			
+			</div>	
 		</div>
 	</div>
 </div>
+<br> <br> <br> <br> <br> <br> <br> <br>
 
-		<br> <br> <br> <br>
+
+
+
+
+
+
+

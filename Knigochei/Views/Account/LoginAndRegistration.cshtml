@@ -1,57 +1,63 @@
-﻿<div class="parallax pt-5 pb-5 container-fluid" style="height: 700px;">
-			<div class="row mt-5 pt-3">
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
-					<div class="tab text-center pt-3 pb-3">
-						<button class="tablinks pt-2 pb-2" onclick="openCity(event, 'SignUp')">Sign Up</button>
-						<button class="tablinks pt-2 pb-2 ms-5" onclick="openCity(event, 'SignIn')">Sign In</button>
-					</div>
-
-					<div id="SignUp" class="tabcontent text-center mt-5 pb-3">
-						<form class="sign pt-5 pb-5" asp-controller="Account" asp-action="SignUp" method="post">
-						<h4>@ViewData["RegistrationError"]</h4>
-						<h3>SIGN UP</h3>
-							<label for="email">Email:</label>
-							<input type="text" id="emailSignUp" name="email" placeholder="John@gmail.com"><br>
-							<label for="passw">Password:</label>
-							<input type="password" id="passwordSignUp" name="password" ><br><br>
-							<input type="submit" name="SignupSubmit">
-						</form>
-					</div>
-
-					<div id="SignIn" class="tabcontent text-center mt-5 pb-3">
-						<form class="sign pt-5 pb-5" asp-controller="Account" asp-action="Login" method="post">
-						<h4>@ViewData["LoginError"]</h4>
-						<h3>SIGN IN</h3>
-							<label for="email">Email:</label>
-							<input type="text" id="emailLogin" name="email" placeholder="John@gmail.com"><br>
-							<label for="passw">Password:</label>
-							<input type="password" id="passwordLogin" name="password" >
-							<br><br>
-							<input type="submit" name="LoginSubmit">
-						</form>
-					</div>
-				</div>
-
+﻿
+<div class="container-fluid" style="height: 700px;">
+	<div class="row ">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<div class="tab text-center pb-3">
 			</div>
+
+			<div id="SignUp" class="sign text-center mt-5">
+				<form class=" pt-5 pb-5" asp-controller="Account" asp-action="SignUp" method="post">
+					<h4>@ViewData["RegistrationError"]</h4>
+
+					<h3>Зарегистрироваться:</h3> <hr class="mb-3" width="80%" style="margin-left: auto; margin-right: auto;">
+					<label for="emailSignUp">Логин:</label>
+					<input type="text" id="emailSignUp" name="email" placeholder="John@gmail.com"><br>
+					<label for="lastName">Фамилия:</label>
+					<input type="text" id="lastName" name="lastName" placeholder="Траволта"><br>
+					<label for="name">Имя:</label>
+					<input type="text" id="name" name="name" placeholder="Джон"><br>
+					<label for="passwordSignUp">Пароль:</label>
+					<input type="password" id="passwordSignUp" name="password"><br><br>
+					<input type="submit" value="Регистрация">
+				</form>
+				<button class="text-center trns pt-2 pb-2" onclick="switchTabTo('SignIn')">Зайти в аккаунт</button>
+				<div style="background-color: #740808; height: 40px;" ></div>
+			</div>
+
+			<div id="SignIn" class="tabcontent text-center mt-5">
+				<div class="sign">
+					<form class="pt-5 pb-5" asp-controller="Account" asp-action="Login" method="post">
+						<h4>@ViewData["LoginError"]</h4>
+						<h3>Зайти в аккаунт:</h3> <hr class="mb-3" width="80%" style="margin-left: auto; margin-right: auto;">
+						<label for="emailLogin">Логин:</label>
+						<input type="text" id="emailLogin" name="email" placeholder="John@gmail.com"><br>
+						<label for="passwordLogin">Пароль:</label>
+						<input type="password" id="passwordLogin" name="password" ><br><br>
+						<input type="submit" value="Войти в аккаунт" >
+					</form>
+					<button class="trns pt-2 pb-2 mt-5" onclick="switchTabTo('SignUp')">Регистрация</button>
+					<div style="background-color: #740808; height: 40px;"></div>
+				</div>
+			</div>
+
 		</div>
 
+	</div>
+</div>
 
 
-		<br> <br> <br> <br> <br> <br> <br> <br>
+<br> <br> <br> <br> <br> <br> <br> <br>
 
-		<script>
-			function openCity(evt, eventName) {
-				var i, tabcontent, tablinks;
-				tabcontent = document.getElementsByClassName("tabcontent");
-				for (i = 0; i < tabcontent.length; i++) {
-					tabcontent[i].style.display = "none";
-				}
-				tablinks = document.getElementsByClassName("tablinks");
-				for (i = 0; i < tablinks.length; i++) {
-					tablinks[i].className = tablinks[i].className.replace(" active", "");
-				}
-				document.getElementById(eventName).style.display = "block";
-				evt.currentTarget.className += " active";
-			}
-		</script>
+<script>
+	function switchTabTo(tab) {
+		if(tab == 'SignUp') {
+			$("#SignIn").hide();
+			$("#SignUp").show();
+		} else {
+			$("#SignIn").show();
+			$("#SignUp").hide();
+		}
+
+	}
+</script>
