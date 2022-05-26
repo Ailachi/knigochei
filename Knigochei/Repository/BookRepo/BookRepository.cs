@@ -16,7 +16,7 @@ namespace Knigochei.Repository.BookRepo
         public void Add(Book book)
         {
             book.Id = Connection.ExecuteScalar<int>(
-                "INSERT INTO Book(Title, BookDescription, PublishedYear, Price, GenreId, AuthorId) " +
+                sql: "INSERT INTO Book(Title, BookDescription, PublishedYear, Price, GenreId, AuthorId) " +
                 "VALUES(@title, @descr, @year, @price, @genreId, @authorId); " +
                 "SELECT SCOPE_IDENTITY()",
                 param: new { @title=book.Title, @descr=book.BookDescription, @year=book.PublishedYear, @price=book.Price, 
@@ -28,7 +28,7 @@ namespace Knigochei.Repository.BookRepo
         public IEnumerable<Book> All()
         {
             return Connection.Query<Book>(
-                "SELECT * FROM Book",
+                sql: "SELECT * FROM Book",
                 transaction: Transaction
             );
         }
@@ -36,9 +36,9 @@ namespace Knigochei.Repository.BookRepo
         public void Delete(int id)
         {
             int affectedRowsNum = Connection.Execute(
-                "DELETE FROM Book " +
+                sql: "DELETE FROM Book " +
                 "WHERE Id = @id",
-                new { id },
+                param: new { id },
                 transaction: Transaction
             );
 
@@ -49,9 +49,13 @@ namespace Knigochei.Repository.BookRepo
             throw new NotImplementedException();
         }
 
-        public Book Find(int id)
+        public Book Find(int bookId)
         {
-            throw new NotImplementedException();
+            return Connection.Query<Book>(
+                sql: "SELECT * from Book WHERE Id = @id",
+                param: new { @id = bookId },
+                transaction: Transaction
+            ).FirstOrDefault();
         }
 
         public Book FindByTitle(string title)

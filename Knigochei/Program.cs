@@ -1,5 +1,6 @@
 using Knigochei.Services.AuthorService;
 using Knigochei.Services.BookService;
+using Knigochei.Services.CartService;
 using Knigochei.Services.GenreService;
 using Knigochei.Services.UserService;
 using Knigochei.UnitOfWorkDapper;
@@ -24,6 +25,7 @@ builder.Services.AddSingleton<IBookService, BookService>();
 builder.Services.AddSingleton<IGenreService, GenreService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<IAuthorService, AuthorService>();
+builder.Services.AddSingleton<ICartService, CartService>();
 
 builder.Services.AddCookiePolicy(options =>
 {

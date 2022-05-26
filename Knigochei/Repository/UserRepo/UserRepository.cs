@@ -14,8 +14,8 @@ namespace Knigochei.Repository.UserRepo
         {
             user.Id = Connection.ExecuteScalar<int>(
                 sql: "INSERT INTO Users(Email, UserPassword, FirstName, LastName, GenderId, RoleId) " +
-                "VALUES(@email, @password, @firstName, @lastName, @genderId, @roleId); " +
-                "SELECT SCOPE_IDENTITY();",
+                     "VALUES(@email, @password, @firstName, @lastName, @genderId, @roleId); " +
+                     "SELECT SCOPE_IDENTITY();",
                 param: new
                 {
                     @email = user.Email,

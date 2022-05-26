@@ -1,5 +1,6 @@
 ﻿using Knigochei.Repository.AuthorRepo;
 using Knigochei.Repository.BookRepo;
+using Knigochei.Repository.CartRepo;
 using Knigochei.Repository.GenreRepo;
 using Knigochei.Repository.UserRepo;
 using System.Data;
@@ -16,6 +17,7 @@ namespace Knigochei.UnitOfWorkDapper
         private IGenreRepository _genreRepository;
         private IUserRepository _userRepository;
         private IAuthorRepository _authorRepository;
+        private ICartRepository _cartRepository;
         private bool _disposed;
 
 
@@ -32,6 +34,7 @@ namespace Knigochei.UnitOfWorkDapper
         public IGenreRepository GenreRepository { get => _genreRepository ?? (_genreRepository = new GenreRepository(_transaction)); set { _genreRepository = value; } }
         public IUserRepository UserRepository{ get => _userRepository ?? (_userRepository = new UserRepository(_transaction)); set { _userRepository = value; } }
         public IAuthorRepository AuthorRepository { get => _authorRepository ?? (_authorRepository = new AuthorRepository(_transaction)); set { _authorRepository = value; } }
+        public ICartRepository CartRepository{ get => _cartRepository ?? (_cartRepository = new CartRepository(_transaction)); set { _cartRepository = value; } }
 
         public void Commit()
         {
@@ -58,6 +61,7 @@ namespace Knigochei.UnitOfWorkDapper
             _authorRepository = null;
             _genreRepository = null;
             _userRepository = null;
+            _cartRepository = null;
         }
 
         public void Dispose()

@@ -31,9 +31,12 @@ namespace Knigochei.Services.BookService
             return books;
         }
 
-        public void GetBookById(int bookId)
+        public Book GetBookById(int bookId)
         {
-            throw new NotImplementedException();
+            IBookRepository repo = _uow.BookRepository;
+            Book book = repo.Find(bookId);
+
+            return book ?? new Book();
         }
 
         public void GetBookByTitle(string title)

@@ -10,5 +10,13 @@ namespace Knigochei.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult AddToCart(int bookId)
+        {
+
+
+            return new JsonResult("success");
+        }
     }
 }

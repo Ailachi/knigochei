@@ -13,7 +13,7 @@ namespace Knigochei.Repository.AuthorRepo
         public void Add(Author author)
         {
             author.Id = Connection.ExecuteScalar<int>(
-                "INSERT INTO Author(FirstName, LastName, BirthDate, GenderId) " +
+                sql: "INSERT INTO Author(FirstName, LastName, BirthDate, GenderId) " +
                 "VALUES(@firstName, @lastName, @birthDate, @genderId); " +
                 "SELECT SCOPE_IDENTITY()",
                 param: new
@@ -35,12 +35,23 @@ namespace Knigochei.Repository.AuthorRepo
             );
         }
 
+        public IEnumerable<Author> GetAuthorsByGenreId(int genreId)
+        {
+            return Connection.Query<Author>(
+                sql: "SELECT * FROM Author a " +
+                     "INNER JOIN Book b on b.AuthorId = a.Id " +
+                     "WHERE b.GenreId = @id ORDER BY a.FirstName",
+                param: new { @id = genreId },
+                transaction: Transaction
+            );
+        }
+
         public void Delete(int id)
         {
             int affectedRowsNum = Connection.Execute(
-                "DELETE FROM Author " +
+                sql: "DELETE FROM Author " +
                 "WHERE Id = @id",
-                new { id },
+                param: new { id },
                 transaction: Transaction
             );
         }
@@ -54,10 +65,22 @@ namespace Knigochei.Repository.AuthorRepo
         {
             throw new NotImplementedException();
         }
+        public Author FindAuthorByBookId(int bookId)
+        {
+            return Connection.Query<Author>(
+                sql: "SELECT * FROM Author a " +
+                     "INNER JOIN Book b ON b.AuthorId = a.Id " +
+                     "WHERE b.Id = @id",
+                param: new { @id = bookId },
+                transaction: Transaction
+            ).FirstOrDefault();
+        }
 
         public void Update(Author author)
         {
             throw new NotImplementedException();
         }
+
+        
     }
 }
