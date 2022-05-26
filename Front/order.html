@@ -7,9 +7,8 @@
 		<link rel="stylesheet" type="text/css" href="res/styles/style.css">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<title>Книгочей</title>
+		<title>Заказ</title>
 		<style type="text/css">
-			/*@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');*/
 			@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 		</style>
 	</head>
@@ -47,87 +46,46 @@
 			</div>
 		</nav>
 
-
-		<div class="container-fluid" style="background-color: white;">
-			<div class="row text-center">
-				<div class="col-md-2 pt-3 pb-3" id="params">
-					<div class="row"> 
-						<label class="mt-2 mr-2"> Искать по фамилии:</label> <br>
-						<input type="text" name="min" class="mt-2" pattern="/^[A-Za-z]+$/" placeholder="Фамилия">
-					</div> <br>
-					<div class="row"> 
-						<label class="mt-2 mr-2"> Искать по имени:</label> <br>
-						<input type="text" name="max" class="mt-2" pattern="/^[A-Za-z]+$/" placeholder="Имя"> 
-					</div><br>
-					<div class="row"> 
-						<label class="col-md-4 mt-2 "> Жанр: </label>
-						<select name="genres" id="genres" class="inp mt-2">
-							<option value="volvo">Фантастика</option>
-							<option value="saab">Роман</option>
-							<option value="mercedes">Фэнтези</option>
-							<option value="audi">Философия</option>
-						</select> </div> <br>
-						<div class="row"> 
-							<label class="col-md-9 mt-2 ms-1">По&nbsp;убыванию:</label> 
-							<input type="checkbox" name="desc" id="check" class="col-md-2 mt-2"> 
-						</div> <br>
-							<input type="submit" name="settings" value="Применить">
+		<div class="container-fluid">
+			<div class="row mb-5 pb-5 mt-5">
+				<div class="col-md-3"></div>
+				<div class="col-md-6 mt-5 pb-5">
+					<div class="sign text-center" style="height: fit-content;">
+						<h3 class="pt-4 text-center pb-5"> Проверьте правильность данных:</h3>
+						<table width="80%" style="margin-right: auto; margin-left: auto;" id="orderTable">
+							<tr class="mb-3">
+								<th>Предмет</th>
+								<th>Кол-во</th>
+								<th>Стоимость</th>
+							</tr>
+							<tr>
+								<td>Падение</td>
+								<td>3</td>
+								<td>9000 KZT</td>
+							</tr>
+							<tr>
+								<td>Властелин Колец</td>
+								<td>1</td>
+								<td>9000 KZT</td>
+							</tr>
+						</table> <br>
+						<div id="info" class="text-center pb-3 pt-3">
+							<span style="font-weight: bold;"> Итого: 18000 KZT </span> <br>
+							<span>Получатель: Нугманова Эльвира </span> <br>
+							<select name="adress" id="adress" class="mt-2">
+								<option value="abay">Абая, 90</option>
+								<option value="tole bi">Толе би, 71</option>
+								<option value="timiryazeva">Тимирязева, 41</option>
+								<option value="zhandosova">Жандосова, 1</option>
+							</select> 
+							<br>
 						</div>
-				<div class="col-md-8 mt-4 ps-5 ms-5">
-					<h2> Представляем Вашему вниманию авторов, чьи книги есть в нашей коллекции:</h2>
-					<div class="row ms-5 mt-5"> 
-						<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-							<img src="res/img/tolkien.jpg" style="width: 50%" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h4> John Ronald Ruel Tolkien </h4> <hr>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-
-						<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-							<img src="res/img/tolkien.jpg" style="width: 50%" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h4> John Ronald Ruel Tolkien </h4> <hr>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-
-						<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-							<img src="res/img/tolkien.jpg" style="width: 50%" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h4> John Ronald Ruel Tolkien </h4> <hr>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-					</div>
-					<div class="row  ms-5"> 
-						<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-							<img src="res/img/tolkien.jpg" style="width: 50%" class="card-img-top" alt="...">
-							<div class="card-body"> 
-								<h4> John Ronald Ruel Tolkien </h4> <hr>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-
-						<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-							<img src="res/img/tolkien.jpg" style="width: 50%" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h4> John Ronald Ruel Tolkien </h4> <hr>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
-
-						<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-							<img src="res/img/tolkien.jpg" style="width: 50%" class="card-img-top" alt="...">
-							<div class="card-body">
-								<h4> John Ronald Ruel Tolkien </h4> <hr>
-								<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-							</div>
-						</div>
+						<button class="mt-4 text-center mb-5 order"> Оформить&nbsp;заказ</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
 
 		<footer class="container-fluid pb-4 pt-2">
 			<h3 class="text-center pt-3"> Мы всегда на связи:</h3> <br> <br>
@@ -184,4 +142,3 @@
 		</html>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-

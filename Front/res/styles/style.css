@@ -163,7 +163,7 @@ input[type="text"], input[type="password"] {
 	background-color: transparent;
 	transition: 200ms all ease-in;
 }
-.sign input[type="submit"] {
+.sign input[type="submit"], .order {
 	background-color: transparent;
 	color: #740808;
 	width: 35%;
@@ -171,7 +171,7 @@ input[type="text"], input[type="password"] {
 	border: 2px solid #740808;
 	transition: 200ms all ease-in;
 }
-.tablinks:hover, .sign input[type="submit"]:hover {
+.tablinks:hover, .sign input[type="submit"]:hover, .order:hover {
 	background-color: #740808;
 	color: white;
 	border: 2px solid #740808;
@@ -227,18 +227,15 @@ input[type="text"], input[type="password"] {
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-#item-body * {
-	/*border: 2px solid black;*/
-}
 #description button i {
 	color: #740808;
 }
-#description button, .cartItem button {
+#description button {
 	border: none;
 	background-color: white;
 	transition: all 250ms ease-in;
 }
-#description button:hover, .cartItem button:hover {
+#description button:hover {
 	color: #740808;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
@@ -257,9 +254,6 @@ input[type="text"], input[type="password"] {
 	background-color: white;
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
-.cartItem button {
-	border: 2px solid #740808;
-}
 .cartItem i {
 	color: #740808;
 }
@@ -271,9 +265,7 @@ input[type="text"], input[type="password"] {
 	width: 50%;
 	background-color: white;
 }
-select-selected {
-	background-color: #740808;
-}
+
 .del {
 	color: #740808;
 	background-color: white;
@@ -312,3 +304,62 @@ select-selected {
 .mainAbout hr {
 box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
+
+/* ORDER PAGE */
+#orderTable tr{
+	border-bottom: 1px solid grey;
+}
+#info {
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	border: 2px solid #740808;
+}
+#info select {
+	border: none;
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: transparent;
+	border-top:  1px solid grey;
+}
+
+/* ADMIN */
+
+.list {
+	width: 100%;
+	background-color: white;
+}
+.list tr {
+	border-bottom: 1px solid #740808;
+}
+.list td{
+	padding: 1%;
+}
+.sign select {
+	float: none;
+	margin-left: 10%;
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid grey;
+	width: 50%;
+}
+.sign select:focus {
+	outline: 1px solid grey;
+}
+#addBook label, #addAuthor label {
+	float: left;
+	margin-top: 1%;
+	width: 25%;
+}
+#addBook input[type="text"], #addAuthor input[type="text"] {
+	width: 50%;
+	float: right;
+	margin-left: 10%;
+}
+#addBook input[type="text"]:focus, #addAuthor input[type="text"]:focus {
+	outline: 0;
+}
+/*#add *{
+	border: 1px solid yellow;
+}*/
