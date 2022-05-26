@@ -3,56 +3,65 @@
 
 
 <div class="container-fluid">
-			<div class="row text-center">
-				<div class="col-md-2 pt-3 pb-3" id="params">
-					@using(Html.BeginForm("Index", "Catalog", FormMethod.Get))
-					{
-						<div class="row"> 
-							<label class="col-md-4 mt-2 mr-2"> От:</label>
-							<input type="text" asp-for="PriceMin" class="inp mt-2 col-md-9" pattern="[0-9]+" placeholder="1000">
-						</div> <br>
-						<div class="row"> 
-							<label class="col-md-4 mt-2 mr-2"> До:</label>
-							<input type="text" asp-for="PriceMax" class="inp mt-2" pattern="[0-9]+" placeholder="10000"> 
-						</div><br>
-						<div class="row"> 
-							<label class="col-md-4 mt-2 "> Жанр: </label>
-							<select asp-for="GenreId" class="inp mt-2">
-								<option value=0>Все</option>
-								@foreach(var genre in ViewData["genres"] as List<Genre>)
-								{
-									<option value=@genre.Id>@genre.GenreName</option>
-								}
-							</select> 
-						</div> <br>
-							<div class="row"> 
-								<label class="col-md-9 mt-2 ms-1">По&nbsp;убыванию:</label> 
-								<input type="checkbox" asp-for="OrderByPriceDesc" class="col-md-2 mt-2"> 
-							</div> <br>
-								<input type="submit" name="settings" value="Применить">
-					}
-				</div>
-						<div class="col-md-8 mt-4 ps-5 ms-5">
-							<div class="row ms-5">
-							@foreach(var book in ViewData["books"] as List<Book>)
+		<div class="row text-center">
+			<div class="col-md-2 pt-3 pb-3" id="params">
+				@using(Html.BeginForm("Index", "Catalog", FormMethod.Get))
+				{
+					<div class="row"> 
+						<label class="col-md-4 mt-2 mr-2"> От:</label>
+						<input type="text" asp-for="PriceMin" class="inp mt-2 col-md-9" pattern="[0-9]+" placeholder="1000">
+					</div> <br>
+					<div class="row"> 
+						<label class="col-md-4 mt-2 mr-2"> До:</label>
+						<input type="text" asp-for="PriceMax" class="inp mt-2" pattern="[0-9]+" placeholder="10000"> 
+					</div><br>
+					<div class="row"> 
+						<label class="col-md-4 mt-2 "> Жанр: </label>
+						<select asp-for="GenreId" class="inp mt-2">
+							<option value=0>Все</option>
+							@foreach(var genre in ViewData["genres"] as List<Genre>)
 							{
-								 
-								<div class="card mb-3 pt-3 me-2" style="width: 18rem;">
-
-								<img src=@Url.Content(book.CoverImagePath) style="width: 50%" class="card-img-top" alt="@book.Title">
-								
-									<div class="card-body">
-										<p class="card-text">@book.Title</p>
-										<p class="card-text">Price: @book.Price</p>
-										<p class="card-text">@book.BookDescription</p>
-									</div>
-								</div>
+								<option value=@genre.Id>@genre.GenreName</option>
 							}
+						</select> 
+					</div> <br>
+						<div class="row"> 
+							<label class="col-md-9 mt-2 ms-1">По&nbsp;убыванию:</label> 
+							<input type="checkbox" asp-for="OrderByPriceDesc" class="col-md-2 mt-2"> 
+						</div> <br>
+							<input type="submit" name="settings" value="Применить">
+				}
+			</div>
+					<div class="col-md-8 mt-4 ps-5 ms-5">
+						<div class="row ms-5">
+						@foreach(var book in ViewData["books"] as List<Book>)
+						{
+								 
+							<div class="card mb-3 pt-3 me-2" style="width: 18rem;" onclick="openBookPage(@book.Id)">
+
+							<img src=@Url.Content(book.CoverImagePath) style="width: 50%" class="card-img-top" alt="@book.Title">
+								
+								<div class="card-body">
+									<p class="card-text">@book.Title</p>
+									<p class="card-text">Price: @book.Price</p>
+									<p class="card-text">@book.BookDescription</p>
+								</div>
 							</div>
+						}
+						</div>
 
 							
-						</div>
-			</div>
-	</div>
+					</div>
+		</div>
+</div>
 
-				<br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br />
+<script> 
+	function openBookPage(bookId) {
+		let bookPageUrl = '@Url.Action("Book", "Catalog")/'+bookId;
+		console.log(bookPageUrl);
+
+		location.href=bookPageUrl;
+	}
+
+</script>

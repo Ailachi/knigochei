@@ -80,7 +80,8 @@ namespace Knigochei.Controllers
             ClaimsIdentity identity = new ClaimsIdentity(new[]
             {
                 new Claim(ClaimTypes.Email,model.Email),
-                new Claim(ClaimTypes.Role,userRole)
+                new Claim(ClaimTypes.Role,userRole),
+                new Claim(ClaimTypes.NameIdentifier, $"{user.Id}")
             }, CookieAuthenticationDefaults.AuthenticationScheme);
 
             var principal = new ClaimsPrincipal(identity);

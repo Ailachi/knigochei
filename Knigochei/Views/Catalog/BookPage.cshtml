@@ -22,7 +22,7 @@
 					<p>
 						@Model.Book.BookDescription
 					</p>
-					<button class="p-2 ps-3 pe-3"> <i class="bi bi-plus-circle"></i> Добавить в корзину </button>
+					<button class="p-2 ps-3 pe-3" onclick="AddToCart(@Model.Book.Id)"> <i class="bi bi-plus-circle"></i> Добавить в корзину </button>
 				</div>
 			</div>
 		</div>
@@ -69,3 +69,26 @@
 	</div>
 </div>
 <br> <br> <br> <br>
+
+<script>
+
+	function AddToCart(bookId) {
+			$.ajax({
+				url:"/Cart/AddToCart",
+				method: "POST",
+				data: { "bookId": bookId },
+				success: function(data, status) {
+					alert("Successfully Added To Cart!")
+					let cartUrl = '@Url.Action("Index", "Cart")';
+					location.href=cartUrl;
+				},
+				error: function(error) {
+					alert("Failed To Add to Cart! Error: ")
+					console.log(error)
+
+				}
+				
+			})
+		}
+
+</script>
