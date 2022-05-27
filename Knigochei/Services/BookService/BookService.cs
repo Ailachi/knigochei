@@ -43,5 +43,20 @@ namespace Knigochei.Services.BookService
         {
             throw new NotImplementedException();
         }
+        public void FilterBooksByGenre(ref List<Book> books, int genreId)
+        {
+            if (genreId != 0)
+                books = books.Where(book => book.GenreId == genreId).ToList();
+        }
+
+        public void FilterBooksByPrice(ref List<Book> books, int minPrice, int maxPrice)
+        {
+            books = books.Where(book => book.Price >= minPrice && book.Price <= maxPrice).ToList();
+        }
+
+        public void SortBooksByDesc(ref List<Book> books, bool isSortByDesc)
+        {
+            books = isSortByDesc ? books.OrderByDescending(book => book.Price).ToList() : books.OrderBy(book => book.Price).ToList();
+        }
     }
 }

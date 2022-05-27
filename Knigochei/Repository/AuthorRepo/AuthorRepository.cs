@@ -50,7 +50,7 @@ namespace Knigochei.Repository.AuthorRepo
         {
             int affectedRowsNum = Connection.Execute(
                 sql: "DELETE FROM Author " +
-                "WHERE Id = @id",
+                     "WHERE Id = @id",
                 param: new { id },
                 transaction: Transaction
             );
@@ -63,7 +63,11 @@ namespace Knigochei.Repository.AuthorRepo
 
         public Author Find(int id)
         {
-            throw new NotImplementedException();
+            return Connection.Query<Author>(
+                sql: "SELECT * FROM Author WHERE Id = @id",
+                param: new { @id },
+                transaction: Transaction
+            ).FirstOrDefault();
         }
         public Author FindAuthorByBookId(int bookId)
         {

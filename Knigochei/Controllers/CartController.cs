@@ -1,5 +1,8 @@
 ﻿using Knigochei.Models;
+using Knigochei.Services.AuthorService;
+using Knigochei.Services.BookService;
 using Knigochei.Services.CartService;
+using Knigochei.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -11,10 +14,14 @@ namespace Knigochei.Controllers
     {
 
         private ICartService _cartService;
+        private IBookService _bookService;
+        private IAuthorService _authorService;
 
-        public CartController(ICartService cartService)
+        public CartController(ICartService cartService, IBookService bookService, IAuthorService authorService)
         {
             _cartService = cartService;
+            _bookService = bookService;
+            _authorService = authorService;
         }
 
         public IActionResult Index()
@@ -22,9 +29,10 @@ namespace Knigochei.Controllers
             int userId = GetUserId();
             _cartService.CreateUserCartIfNotExists(userId);
 
+            List<CartItem> cartItems = _cartService.GetAllCartItemsByCart(userId);
+            List<CartItemViewModel> cartItemViewModels = ConvertCartItemViewsToViewModel(cartItems).ToList();
 
-
-            return View();
+            return View(cartItemViewModels);
         }
 
         [HttpPost]
@@ -43,6 +51,23 @@ namespace Knigochei.Controllers
 
             return new JsonResult("success");
         }
+        [HttpPost]
+        public IActionResult UpdateCartItemAmount(CartItem cartItem)
+        {
+            int userId = GetUserId();
+            _cartService.UpdateUserCartItemAmountOrIncrement(userId, cartItem.BookId, cartItem.Amount);
+
+            return new JsonResult("Success");
+        }
+
+        [HttpDelete]
+        public IActionResult DeleteFromCart(int bookId)
+        {
+            int userId = GetUserId();
+            _cartService.DeleteFromUserCartByBook(userId, bookId);
+
+            return new JsonResult("Deleted Successfully");
+        }
 
 
         public int GetUserId()
@@ -54,6 +79,19 @@ namespace Knigochei.Controllers
 
 
             return Convert.ToInt32(userIdClaimValue);
+        }
+
+        public IEnumerable<CartItemViewModel> ConvertCartItemViewsToViewModel(IEnumerable<CartItem> cartItems)
+        {
+            return cartItems.Select(cartItem =>
+            {
+                CartItemViewModel cartItemView = new CartItemViewModel();
+                cartItemView.Book = _bookService.GetBookById(cartItem.BookId);
+                cartItemView.Author = _authorService.GetAuthorById(cartItemView.Book.AuthorId);
+                cartItemView.CartItem = cartItem;
+
+                return cartItemView;
+            });
         }
     }
 }

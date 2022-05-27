@@ -1,4 +1,14 @@
-﻿<div class="container-fluid">
+﻿@model List<Knigochei.ViewModels.CartItemViewModel>
+@using System.Globalization
+
+@{
+	DateOnly now = DateOnly.FromDateTime(DateTime.Now);
+	
+
+}
+
+
+<div class="container-fluid">
 	<div class="row pb-0 mb-0 pt-5 mt-4">
 		<div class="col-md-8 ms-0">
 			<div class="row p-2 ms-4">
@@ -10,40 +20,130 @@
 						<th class="col-md-2">Стоимость:</th>
 						<th class="col-md-2">&nbsp;</th>
 					</tr>
-					
-					<tr>
-						<td>
-							<h5> Падение </h5>
-							<h6> Альбер Камю</h6>
-							<span>
-								<i class="bi bi-star-fill"></i>
-								<i class="bi bi-star-fill"></i>
-								<i class="bi bi-star-fill"></i>
-								<i class="bi bi-star-fill"></i>
-								<i class="bi bi-star-fill"></i>
-							</span> 
-						</td>
-						<td> <h6> 3000 <span> KZT </span> </h6> </td>
-						<td>  
-							<select name="amount" id="amount" class="text-center">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-							</select>
-						</td>
-						<td> <h6> 3000 <span> KZT </span> </h6> </td>
-						<td> <button class="del"> Удалить </button> </td>
-					</tr>
+					@foreach(var cartItem in Model)
+					{
+						<tr>
+							<td>
+								<h5> @cartItem.Book.Title </h5>
+								<h6> @cartItem.Author.FullName</h6>
+								<span>
+									@for(int star = 0; star < @cartItem.Book.BookRank; star++)
+									{
+										<i class="bi bi-star-fill"></i>
+									}
+								</span> 
+							</td>
+							<td>
+								<h6 id="price-@cartItem.CartItem.BookId"> @cartItem.Book.Price<span> KZT </span> </h6>
+							</td>
+							<td>  
+								
+								<input type="number" class="text-center w-25 amount" id="@cartItem.CartItem.BookId"  name="amount" value=@cartItem.CartItem.Amount min=1 style="border: 1px solid black">
+								
+							</td>
+							<td>
+								<h6 id="total-amount-@cartItem.CartItem.BookId">@(cartItem.CartItem.Amount * cartItem.Book.Price)<span> KZT </span> </h6>
+							</td>
+							<td> <button class="del" onclick="deleteCartItem(@cartItem.CartItem.BookId)"> Удалить </button> </td>
+						</tr>
+					}
 
 				</table>
 			</div>
 		</div>
 		<div class="col-md-3 ms-5 pt-4 cartItem text-center">
-			<h4> Итоговая сумма : 9000 KZT </h4> <hr>
-			<p> Сформируем заказ: <span> 28 мая </span> </p>
-			<p> Отправим заказ:<span> 1 июня </span> </p>
+			<h4 id="total-price"></h4> <hr>
+			<p> Сформируем заказ: <span>@now.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru"))</span> </p>
+			<p> Отправим заказ:<span> @now.AddDays(7).ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru")) </span> </p>
 			<button class="mt-5 p-2"> Оформить заказ </button>
 		</div>
 	</div>
 <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+<script>
+
+	function deleteCartItem(bookId) {
+			console.log('@Url.Action("DeleteFromCart", "Cart")')
+			$.ajax({
+				url: '@Url.Action("DeleteFromCart", "Cart")',
+				method: "DELETE",
+				data: {
+					"bookId":bookId,
+				},
+				success: function(data, statusCode) {
+					console.log(data)
+					refreshPage();
+
+				},
+				error: function(errorCode) {
+					alert("Could not delete Item From Cart!")
+					
+				}
+			})
+		};
+
+	function refreshPage() {
+		document.location.reload();
+	}
+
+
+
+	$("document").ready(function() {
+		refreshTotalPrice();
+
+
+		$(".amount").change(function() {
+			let amount = Number($(this).val());
+
+			if(amount <= 0) {
+				amount = 1;
+				$(this).val(1)
+			}
+			console.log("Item Change")
+			let bookId = $(this).attr('id');
+
+			let price = Number($("#price-"+bookId).text().match("[0-9]+"))
+
+			
+
+			updateCartItemAmount(bookId, price, amount);
+			
+
+		})
+
+		function refreshTotalPrice() {
+			let total = 0;
+			$(".amount").each(function(index) {
+				let bookId = $(this).attr('id');
+				let amount = Number($(this).val());
+				let price = Number($("#price-"+bookId).text().match("[0-9]+"))
+
+				total+=amount*price;
+			})
+
+			$("#total-price").text("Итоговая сумма : ").append(total).append(" KZT");
+		}
+
+		function updateCartItemAmount(bookId, price, amount) {
+			$.ajax({
+				url: '@Url.Action("UpdateCartItemAmount", "Cart")',
+				method: "POST",
+				data: {
+					"BookId":bookId,
+					"Amount":amount
+				},
+				success: function(data, statusCode) {
+					console.log("Cart Item Amount Updated!")
+
+					$("#total-amount-"+bookId).text(price*amount).append(" KZT");
+					refreshTotalPrice();
+				},
+				error: function(errorCode) {
+					console.log("Error Updating Amount!")
+					
+				}
+			})
+		}
+
+	})
+</script>

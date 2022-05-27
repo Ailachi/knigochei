@@ -78,13 +78,31 @@ namespace Knigochei.Repository.CartRepo
             );
         }
 
-        public CartItem FindCartItemByCartId(int cartId)
+        public CartItem FindCartItemByCartIdAndBookId(int cartId, int bookId)
+        {
+            return Connection.Query<CartItem>(
+                sql: "SELECT * FROM CartItem WHERE CartId = @cartId AND BookId = @bookId",
+                param: new { cartId, bookId },
+                transaction: Transaction
+            ).FirstOrDefault();
+        }
+
+        public IEnumerable<CartItem> GetCartItemsByCartId(int cartId)
         {
             return Connection.Query<CartItem>(
                 sql: "SELECT * FROM CartItem WHERE CartId = @cartId",
                 param: new { cartId },
                 transaction: Transaction
-            ).FirstOrDefault();
+            );
         }
-    }
+
+		public void DeleteCartItem(CartItem cartItem)
+		{
+            int res = Connection.ExecuteScalar<int>(
+                sql: "DELETE FROM CartItem WHERE Id = @id",
+                param: new { @id = cartItem.Id },
+                transaction: Transaction
+            );
+		}
+	}
 }

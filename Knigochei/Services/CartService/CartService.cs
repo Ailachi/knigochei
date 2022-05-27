@@ -50,7 +50,7 @@ namespace Knigochei.Services.CartService
             ICartRepository repo = _uow.CartRepository;
             Cart cart = repo.FindCartByUserId(userId);
 
-            CartItem cartItem = repo.FindCartItemByCartId(cart.Id);
+            CartItem cartItem = repo.FindCartItemByCartIdAndBookId(cart.Id, bookId);
 
             cartItem.Amount = amount == 0
                 ? cartItem.Amount + 1
@@ -67,6 +67,27 @@ namespace Knigochei.Services.CartService
             bool existsCartItem = repo.ExistsCartItem(userId, bookId);
 
             return existsCartItem;
+        }
+        
+
+        public List<CartItem> GetAllCartItemsByCart(int userId)
+        {
+            ICartRepository repo = _uow.CartRepository;
+            Cart cart = repo.FindCartByUserId(userId);
+
+            List<CartItem> items = repo.GetCartItemsByCartId(cart.Id).ToList();
+
+            return items;
+        }
+
+		public void DeleteFromUserCartByBook(int userId, int bookId)
+		{
+            ICartRepository repo = _uow.CartRepository;
+            Cart cart = repo.FindCartByUserId(userId);
+            CartItem cartItem = repo.FindCartItemByCartIdAndBookId(cart.Id, bookId);
+
+            repo.DeleteCartItem(cartItem);
+            _uow.Commit();
         }
     }
 }

@@ -27,10 +27,10 @@ namespace Knigochei.Controllers
             List<Book> books = _bookService.GetAllBooks();
             List<Genre> allGenres = _genreService.GetAllGenres();
 
-            FilterBooksByPrice(ref books, model.PriceMin, model.PriceMax);
-            FilterBooksByGenre(ref books, model.GenreId);
+            _bookService.FilterBooksByPrice(ref books, model.PriceMin, model.PriceMax);
+            _bookService.FilterBooksByGenre(ref books, model.GenreId);
 
-            SortBooksByDesc(ref books, model.OrderByPriceDesc);
+            _bookService.SortBooksByDesc(ref books, model.OrderByPriceDesc);
 
             ViewData["books"] = books;
             ViewData["genres"] = allGenres;
@@ -55,21 +55,6 @@ namespace Knigochei.Controllers
             return View(model);
         }
 
-        private void FilterBooksByGenre(ref List<Book> books, int genreId)
-        {
-            if(genreId != 0)
-                books = books.Where(book => book.GenreId == genreId).ToList();
-        }
-
-        private void FilterBooksByPrice(ref List<Book> books, int minPrice, int maxPrice)
-        {
-            books = books.Where(book => book.Price >= minPrice && book.Price <= maxPrice).ToList();
-        }
-
-        private void SortBooksByDesc(ref List<Book> books, bool isSortByDesc)
-        {
-            books = isSortByDesc ? books.OrderByDescending(book => book.Price).ToList() : books.OrderBy(book => book.Price).ToList();
-        }
 
         
     }

@@ -31,9 +31,19 @@ namespace Knigochei.Services.AuthorService
             return authors;
         }
 
-        public void GetAuthorById(int authorId)
+        public Author GetAuthorById(int authorId)
         {
-            throw new NotImplementedException();
+            IAuthorRepository repo = _uow.AuthorRepository;
+            Author author = repo.Find(authorId);
+
+            if (author is null)
+            {
+                author = new Author();
+                author.FirstName = "Неизвестный";
+                author.LastName = "Автор";
+            }
+
+            return author;
         }
 
         public void FilterAuthorsByFirstName(ref List<Author> authors, string firstName)
