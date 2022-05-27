@@ -15,6 +15,7 @@ namespace Knigochei.Repository.CartRepo
         public bool ExistsCartItem(int userId, int bookId);
 
         public void DeleteCartItemsByCartId(int cartId);
+        public void DeleteAllCartItemsByBookId(int bookId);
 
 
 

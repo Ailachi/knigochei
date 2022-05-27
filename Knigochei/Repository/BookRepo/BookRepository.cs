@@ -16,11 +16,20 @@ namespace Knigochei.Repository.BookRepo
         public void Add(Book book)
         {
             book.Id = Connection.ExecuteScalar<int>(
-                sql: "INSERT INTO Book(Title, BookDescription, PublishedYear, Price, GenreId, AuthorId) " +
-                "VALUES(@title, @descr, @year, @price, @genreId, @authorId); " +
+                sql: "INSERT INTO Book(Title, BookDescription, PublishedYear, Price, CoverImagePath, GenreId, AuthorId) " +
+                "VALUES(@title, @descr, @year, @price, @imagePath, @genreId, @authorId); " +
                 "SELECT SCOPE_IDENTITY()",
-                param: new { @title=book.Title, @descr=book.BookDescription, @year=book.PublishedYear, @price=book.Price, 
-                    @genreId=book.GenreId, @authorId=book.AuthorId },
+                param: 
+                new 
+                {
+                    @title = book.Title,
+                    @descr = book.BookDescription,
+                    @year = book.PublishedYear,
+                    @price = book.Price,
+                    @imagePath = book.CoverImagePath,
+                    @genreId = book.GenreId,
+                    @authorId = book.AuthorId
+                },
                 transaction: Transaction
             );
         }
@@ -28,7 +37,7 @@ namespace Knigochei.Repository.BookRepo
         public IEnumerable<Book> All()
         {
             return Connection.Query<Book>(
-                sql: "SELECT * FROM Book",
+                sql: "SELECT * FROM Book WHERE IsDeleted = 0",
                 transaction: Transaction
             );
         }
@@ -36,8 +45,9 @@ namespace Knigochei.Repository.BookRepo
         public void Delete(int id)
         {
             int affectedRowsNum = Connection.Execute(
-                sql: "DELETE FROM Book " +
-                "WHERE Id = @id",
+                sql: "UPDATE Book " +
+                     "SET IsDeleted = 1 " +
+                     "WHERE Id = @id",
                 param: new { id },
                 transaction: Transaction
             );
@@ -52,7 +62,7 @@ namespace Knigochei.Repository.BookRepo
         public Book Find(int bookId)
         {
             return Connection.Query<Book>(
-                sql: "SELECT * from Book WHERE Id = @id",
+                sql: "SELECT * from Book WHERE Id = @id AND IsDeleted = 0",
                 param: new { @id = bookId },
                 transaction: Transaction
             ).FirstOrDefault();

@@ -2,7 +2,7 @@
 	<div class="row text-center mt-5 mb-5">
 		<div class="col-md-4 ms-5 ps-5">
 			<div class="sign pt-5 pb-3" style="height: fit-content;">
-				<form id="addBook">
+				<form id="addBook" asp-controller="Admin" asp-action="AddBook" method="POST">
 					<h4> Добавить книгу:</h4>
 					<div class="row">
 						<label for="title" class="col-md-1 ms-4">Название:</label>
@@ -10,18 +10,24 @@
 					</div>
 					<div class="row">
 						<label for="year" class="col-md-1 ms-4">Год:</label>
-						<input type="text" id="year" name="year" class="col-md-8" placeholder="2000">
+						<input type="text" id="year" name="publishedYear" class="col-md-8" placeholder="2000">
 					</div>
 					<div class="row">
 						<label for="genres" class="col-md-1 ms-4">Жанр:</label>
-						<select name="genres" id="genres" class="inp col-md-8">
-							<option value="volvo">Volvo</option>
+						<select name="genreId" id="genres" class="inp col-md-8">
+							@foreach(Genre genre in ViewData["genres"] as List<Genre>)
+							{
+								<option value=@genre.Id> @genre.GenreName</option>
+							}
 						</select>
 					</div>
 					<div class="row">
 						<label for="authorId" class="col-md-1 ms-4">Автор:</label>
 						<select name="authorId" id="authorId" class="inp col-md-8">
-							<option value="volvo">Volvo</option>
+							@foreach(Author author in ViewData["authors"] as List<Author>)
+							{
+								<option value=@author.Id> @author.FullName</option>
+							}
 						</select> 
 					</div>
 					<br>
@@ -30,24 +36,27 @@
 			</div>
 			<br>
 			<div class="sign pt-5" style="height: fit-content;"> 
-				<form id="addAuthor" class=" pt-5 pb-5 pb-3">
+				<form id="addAuthor" class=" pt-5 pb-5 pb-3" asp-controller="Admin" asp-action="AddAuthor" method="POST">
 					<h3>Добавить автора:</h3> <hr class="mb-3" width="80%" style="margin-left: auto; margin-right: auto;">
 					<div class="row">
 						<label for="name" class="col-md-1 ms-4">Имя:</label>
-						<input type="text" id="name" name="name" class="col-md-8" placeholder="Фёдор">
+						<input type="text" id="name" name="firstName" class="col-md-8" placeholder="Фёдор" required>
 					</div>
 					<div class="row">
 						<label for="surname" class="col-md-1 ms-4">Фамилия:</label>
-						<input type="text" id="surname" name="surname" class="col-md-8" placeholder="Достоевский">
+						<input type="text" id="surname" name="lastName" class="col-md-8" placeholder="Достоевский" required>
 					</div>
-					<div class="row">
+				    <div class="row">
 						<label for="text" class="col-md-1 ms-4">Год&nbsp;рождения:</label>
-						<input type="text" id="text" name="text" class="col-md-8" placeholder="2021">
+						<input type="number" min=1 id="text" name="birthYear" class="col-md-8" placeholder="2021" required>
 					</div>
 					<div class="row">
-						<label for="genres" class="col-md-1 ms-4">Пол:</label>
-						<select name="genres" id="genres" class="inp col-md-8">
-							<option value="volvo">Volvo</option>
+						<label for="genders" class="col-md-1 ms-4">Пол:</label>
+						<select name="genderId" id="genders" class="inp col-md-8">
+							@foreach(Gender gender in ViewData["genders"] as List<Gender>)
+							{
+								<option value=@gender.Id> @gender.GenderName</option>
+							}
 						</select>
 					</div>
 					<br> <br>
@@ -66,18 +75,21 @@
 						<th>Автор</th>
 						<th>&nbsp;</th>
 					</tr>
-					<tr>
-						<td>Падение</td>
-						<td>Философия</td>
-						<td>Альбер Камю</td>
-						<td> <button class="del"> Удалить</button> </td>
-					</tr>
-					<tr>
-						<td>Падение</td>
-						<td>Философия</td>
-						<td>Альбер Камю</td>
-						<td> <button class="del"> Удалить</button> </td>
-					</tr>
+					@foreach(Book book in ViewData["books"] as List<Book>)
+					{
+						List<Genre> allGenres = ViewData["genres"] as List<Genre>;
+						List<Author> authors = ViewData["authors"] as List<Author>;
+						string bookGenreName = allGenres.Where(genre => genre.Id == book.GenreId).Select(genre => genre.GenreName).FirstOrDefault("Нет жанра");
+						string bookAuthorFullName = authors.Where(author => author.Id == book.AuthorId).Select(author => author.FullName).FirstOrDefault("Неизвестный");
+
+						<tr>
+							<td>@book.Title</td>
+							<td>@bookGenreName</td>
+							<td>@bookAuthorFullName</td>
+							<td> <button class="del" onclick="deleteBook(@book.Id)"> Удалить</button> </td>
+						</tr>
+						
+					}
 				</table>
 			</div>
 			<br> <br>
@@ -91,21 +103,55 @@
 						<th>Дата рождения</th>
 						<th>&nbsp;</th>
 					</tr>
-					<tr>
-						<td>Падение</td>
-						<td>Философия</td>
-						<td>Альбер Камю</td>
-						<td> <button class="del"> Удалить</button> </td>
-					</tr>
-					<tr>
-						<td>Падение</td>
-						<td>Философия</td>
-						<td>Альбер Камю</td>
-						<td> <button class="del"> Удалить</button> </td>
-					</tr>
+					@foreach(Author author in ViewData["authors"] as List<Author>)
+					{
+						<tr>
+							<td>@author.FirstName</td>
+							<td>@author.LastName</td>
+							<td>@author.BirthDate.ToString("yyyy/MM/dd")</td>
+							<td> <button class="del" с>Удалить</button> </td>
+						</tr>
+					}
 				</table>
 			</div>
 		</div>
 
 	</div>
 </div>
+
+<script>
+	function deleteAuthor(authorId) {
+		$.ajax({
+			url: '@Url.Action("DeleteAuthor", "Admin")',
+			method: "DELETE",
+			data: { "authorId": authorId },
+			success: function(data, statusCode) {
+				console.log(data);
+				refreshPage();
+			},
+			error: function(errorCode) {
+
+			}
+		})
+	}
+
+	function deleteBook(bookId) {
+		$.ajax({
+			url: '@Url.Action("DeleteBook", "Admin")',
+			method: "DELETE",
+			data: { "bookId": bookId },
+			success: function(data, statusCode) {
+				console.log(data);
+				refreshPage();
+			},
+			error: function(errorCode) {
+
+			}
+		})
+	}
+
+	function refreshPage() {
+		document.location.reload();
+	
+	}
+</script>

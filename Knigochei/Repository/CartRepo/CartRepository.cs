@@ -113,5 +113,13 @@ namespace Knigochei.Repository.CartRepo
             );
         }
 
+        public void DeleteAllCartItemsByBookId(int bookId)
+        {
+            int res = Connection.ExecuteScalar<int>(
+                sql: "DELETE FROM CartItem WHERE BookId = @id",
+                param: new { @id = bookId },
+                transaction: Transaction
+            );
+        }
     }
 }

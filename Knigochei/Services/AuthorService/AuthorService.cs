@@ -15,18 +15,24 @@ namespace Knigochei.Services.AuthorService
         }
         public void AddAuthor(Author author)
         {
-            throw new NotImplementedException();
+            IAuthorRepository repo = _uow.AuthorRepository;
+            repo.Add(author);
+            _uow.Commit();
         }
 
         public void DeleteAuthorById(int authorId)
         {
-            throw new NotImplementedException();
+            IAuthorRepository repo = _uow.AuthorRepository;
+            repo.Delete(authorId);
+            _uow.Commit();
+
+
         }
 
         public List<Author> GetAllAuthors()
         {
             IAuthorRepository repo = _uow.AuthorRepository;
-            List<Author> authors = repo.All().ToList();
+            List<Author> authors = repo.All().Where(author => !author.IsDeleted).ToList();
 
             return authors;
         }
@@ -93,6 +99,14 @@ namespace Knigochei.Services.AuthorService
 
             return author;
 
+        }
+
+        public List<Gender> GetGenders()
+        {
+            IAuthorRepository repo = _uow.AuthorRepository;
+            List<Gender> genders = repo.GetAllGenders().ToList();
+
+            return genders ?? new List<Gender>();
         }
     }
 }

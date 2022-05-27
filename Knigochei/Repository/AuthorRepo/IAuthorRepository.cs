@@ -12,5 +12,7 @@ namespace Knigochei.Repository.AuthorRepo
         Author Find(int id);
         Author FindAuthorByBookId(int bookId);
         void Update(Author author);
+
+        IEnumerable<Gender> GetAllGenders();
     }
 }

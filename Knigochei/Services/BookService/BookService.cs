@@ -15,12 +15,19 @@ namespace Knigochei.Services.BookService
 
         public void AddBook(Book book)
         {
-            throw new NotImplementedException();
+            IBookRepository repo = _uow.BookRepository;
+            repo.Add(book);
+
+            _uow.Commit();
+
         }
 
         public void DeleteBookById(int bookId)
         {
-            throw new NotImplementedException();
+            IBookRepository repo = _uow.BookRepository;
+            repo.Delete(bookId);
+
+            _uow.Commit();
         }
 
         public List<Book> GetAllBooks()

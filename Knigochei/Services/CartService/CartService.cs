@@ -99,5 +99,13 @@ namespace Knigochei.Services.CartService
 
             _uow.Commit();
         }
-	}
+
+        public void DeleteAllCartItemsByBook(int bookId)
+        {
+            ICartRepository repo = _uow.CartRepository;
+
+            repo.DeleteAllCartItemsByBookId(bookId);
+            _uow.Commit();
+        }
+    }
 }

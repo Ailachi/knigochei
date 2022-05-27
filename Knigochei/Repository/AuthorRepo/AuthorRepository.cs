@@ -13,14 +13,15 @@ namespace Knigochei.Repository.AuthorRepo
         public void Add(Author author)
         {
             author.Id = Connection.ExecuteScalar<int>(
-                sql: "INSERT INTO Author(FirstName, LastName, BirthDate, GenderId) " +
-                "VALUES(@firstName, @lastName, @birthDate, @genderId); " +
+                sql: "INSERT INTO Author(FirstName, LastName, BirthDate, AvatarImagePath, GenderId) " +
+                "VALUES(@firstName, @lastName, @birthDate, @imagePath, @genderId); " +
                 "SELECT SCOPE_IDENTITY()",
                 param: new
                 {
                     @firstName = author.FirstName,
                     @lastName = author.LastName,
                     @birthDate = author.BirthDate,
+                    @imagePath = author.AvatarImagePath,
                     @genderId = author.GenderId
                 },
                 transaction: Transaction
@@ -49,7 +50,8 @@ namespace Knigochei.Repository.AuthorRepo
         public void Delete(int id)
         {
             int affectedRowsNum = Connection.Execute(
-                sql: "DELETE FROM Author " +
+                sql: "UPDATE Author " +
+                     "SET IsDeleted = 1" +
                      "WHERE Id = @id",
                 param: new { id },
                 transaction: Transaction
@@ -85,6 +87,12 @@ namespace Knigochei.Repository.AuthorRepo
             throw new NotImplementedException();
         }
 
-        
+        public IEnumerable<Gender> GetAllGenders()
+        {
+            return Connection.Query<Gender>(
+                sql: "SELECT * FROM Gender;",
+                transaction: Transaction
+            );
+        }
     }
 }

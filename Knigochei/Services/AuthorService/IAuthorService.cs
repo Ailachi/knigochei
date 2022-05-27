@@ -12,6 +12,7 @@ namespace Knigochei.Services.AuthorService
         public void FilterAuthorsByLastName(ref List<Author> authors, string lastName);
         public void SortAuthorsByFirstNameDesc(ref List<Author> authors, bool isSortByDesc);
         public List<Author> GetFilteredAuthorsByGenre(int genreId);
+        public List<Gender> GetGenders();
         public Author FindAuthorByBook(int bookId);
 
     }
