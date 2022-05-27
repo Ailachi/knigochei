@@ -1,4 +1,6 @@
-﻿<div class="container-fluid">
+﻿@model Knigochei.ViewModels.OrderHistoryViewModel
+
+<div class="container-fluid">
 	<div class="row mb-5">
 		<div class="col-md-3"></div>
 		<div class="col-md-6 text-center">
@@ -9,21 +11,16 @@
 					<th>Стоимость:</th>
 					<th>Получатель:</th>
 				</tr>
-				<tr class="pt-2">
-					<td>25.05.2022</td>
-					<td>5000 KZT</td>
-					<td> Нугманова Эльвира</td>
+
+				@foreach(var order in Model.Orders) 
+				{
+					<tr class="pt-2">
+					<td>@order.OrderDate</td>
+					<td>@order.TotalPrice KZT</td>
+					<td>@Model.User.FullName</td>
 				</tr>
-				<tr>
-					<td>25.05.2022</td>
-					<td>5000 KZT</td>
-					<td> Нугманова Эльвира</td>
-				</tr>
-				<tr>
-					<td>25.05.2022</td>
-					<td>5000 KZT</td>
-					<td> Нугманова Эльвира</td>
-				</tr>
+				}
+				
 			</table>
 		</div>
 	</div>

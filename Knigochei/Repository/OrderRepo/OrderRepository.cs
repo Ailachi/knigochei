@@ -33,10 +33,6 @@ namespace Knigochei.Repository.OrderRepo
 
 		public void CreateOrder(Order order)
 		{
-			TimeOnly orderTime = TimeOnly.FromDateTime(DateTime.Now);
-			TimeOnly deliveryTime = TimeOnly.FromDateTime(DateTime.Now.AddDays(7));
-
-
 			order.Id = Connection.ExecuteScalar<int>(
 				sql: "INSERT INTO Orders(TotalPrice, OrderDate, DeliveryDate, PickUpAddress, OrderStatusId, UserId) " +
 					 "VALUES(@price, @orderDate, @deliveryDate, @address, @status, @userId); " +
@@ -44,8 +40,8 @@ namespace Knigochei.Repository.OrderRepo
 				param: new
 				{
 					@price = order.TotalPrice,
-					@orderDate = order.OrderDate.ToDateTime(orderTime),
-					@deliveryDate = order.DeliveryDate.ToDateTime(deliveryTime),
+					@orderDate = order.OrderDate,
+					@deliveryDate = order.DeliveryDate,
 					@address = order.PickUpAddress,
 					@status = order.OrderStatusId,
 					@userId = order.UserId
@@ -53,5 +49,21 @@ namespace Knigochei.Repository.OrderRepo
 				transaction: Transaction
 			);
         }
-	}
+
+        public IEnumerable<Order> GetOrdersByUserId(int userId)
+        {
+			return Connection.Query<Order>(
+				sql: "SELECT TotalPrice, " +
+					 "OrderDate, " +
+					 "DeliveryDate, " +
+					 "PickUpAddress, OrderStatusId, " +
+					 "UserId " +
+					 "FROM Orders " +
+					 "WHERE UserId = @id;",
+				param: new { @id = userId },
+				transaction: Transaction
+
+			);
+        }
+    }
 }

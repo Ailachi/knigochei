@@ -43,5 +43,13 @@ namespace Knigochei.Services.OrderService
 			repo.AddOrderItems(orderItems);
 			_uow.Commit();
 		}
-	}
+
+        public List<Order> GetOrdersByUser(int userId)
+        {
+			IOrderRepository repo = _uow.OrderRepository;
+			List<Order> userOrders = repo.GetOrdersByUserId(userId).ToList();
+
+			return userOrders ?? new List<Order>();
+		}
+    }
 }

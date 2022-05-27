@@ -7,5 +7,6 @@ namespace Knigochei.Repository.OrderRepo
 	{
 		public void CreateOrder(Order order);
 		public void AddOrderItems(List<OrderItem> orderItems);
+		public IEnumerable<Order> GetOrdersByUserId(int userId);
 	}
 }

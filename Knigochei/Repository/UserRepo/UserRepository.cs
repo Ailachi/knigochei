@@ -88,7 +88,7 @@ namespace Knigochei.Repository.UserRepo
                 param: 
                 new 
                 {
-                    @id = user.Id,
+                    @userId = user.Id,
                     @email = user.Email,
                     @password = user.UserPassword,
                     @firstName = user.FirstName,

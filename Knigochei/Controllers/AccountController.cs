@@ -20,11 +20,6 @@ namespace Knigochei.Controllers
         }
 
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
         public IActionResult Login()
         {
             ViewData["Title"] = "Login";
@@ -90,7 +85,10 @@ namespace Knigochei.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+
         [Authorize(Roles = "Customer,Admin")]
+        [Route("Account/")]
+        [Route("Account/Index")]
         public IActionResult Profile()
         {
             int userId = GetUserId();
@@ -100,13 +98,16 @@ namespace Knigochei.Controllers
             return View(user);
         }
 
+        [Authorize(Roles = "Customer,Admin")]
         public IActionResult EditProfile(User user)
 		{
+            user.Id = GetUserId();
             _userService.EditUser(user);
 
             return RedirectToAction("Profile", "Account");
 		}
 
+        [Authorize(Roles = "Customer,Admin")]
         public async Task<IActionResult> LogOut()
         {
             await HttpContext.SignOutAsync();
@@ -114,13 +115,12 @@ namespace Knigochei.Controllers
         }
 
         
-
         public IActionResult AccessDenied()
         {
             return View();
         }
 
-        public int GetUserId()
+        private int GetUserId()
         {
             string userIdClaimValue = HttpContext.User.Claims
                 .Where(claim => claim.Type == ClaimTypes.NameIdentifier)

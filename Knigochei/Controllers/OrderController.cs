@@ -54,8 +54,8 @@ namespace Knigochei.Controllers
 			List<CartItem> cartItems = _cartService.GetAllCartItemsByCart(userId);
 
 			Order order = new Order();
-			order.OrderDate = DateOnly.FromDateTime(DateTime.Now);
-			order.DeliveryDate = DateOnly.FromDateTime(DateTime.Now).AddDays(7);
+			order.OrderDate = DateTime.Now;
+			order.DeliveryDate = DateTime.Now.AddDays(7);
 			order.UserId = userId;
 			order.PickUpAddress = pickUpAddress;
 			order.OrderStatusId = (int)OrderStatus.Created;
@@ -70,10 +70,18 @@ namespace Knigochei.Controllers
 			return new JsonResult("Success");
 		}
 
+		
 		public IActionResult OrderHistory()
 		{
+			int userId = GetUserId();
+			List<Order> orders = _orderService.GetOrdersByUser(userId);
+			User user = _userService.GetUserById(userId);
 
-			return View();
+			OrderHistoryViewModel orderHistory = new OrderHistoryViewModel();
+			orderHistory.Orders = orders;
+			orderHistory.User = user;
+
+			return View(orderHistory);
 		}
 		public int GetUserId()
 		{
