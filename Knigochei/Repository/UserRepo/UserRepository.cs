@@ -83,14 +83,8 @@ namespace Knigochei.Repository.UserRepo
 
         public void Update(User user)
         {
-            int res = Connection.ExecuteScalar<int>(
-                sql: "UPDATE Users " +
-                     "SET Email = @email, " +
-                     "UserPassword = @password, " +
-                     "FirstName = @firstName, " +
-                     "LastName = @lastName " +
-                     "WHERE Id = @id;" +
-                     "SELECT SCOPE_IDENTITY();",
+            Connection.Query(
+                sql: "[dbo].[UpdateUser]",
                 param: 
                 new 
                 {
@@ -100,8 +94,11 @@ namespace Knigochei.Repository.UserRepo
                     @firstName = user.FirstName,
                     @lastName = user.LastName
                 },
-                transaction: Transaction
+                transaction: Transaction,
+                commandType: CommandType.StoredProcedure
             );
+
+            
         }
     }
 }

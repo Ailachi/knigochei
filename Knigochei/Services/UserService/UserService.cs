@@ -80,7 +80,6 @@ namespace Knigochei.Services.UserService
 		{
             IUserRepository repo = _uow.UserRepository;
             repo.Update(user);
-
             _uow.Commit();
 
         }
