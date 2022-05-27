@@ -11,5 +11,6 @@ namespace Knigochei.Models
         public string AvatarImagePath { get; set; }
         public DateTime BirthDate { get; set; }
         public int GenderId { get; set; }
+        public bool IsDeleted { get; set; }
     }
 }

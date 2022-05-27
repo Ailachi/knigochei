@@ -72,8 +72,8 @@ namespace Knigochei.Services.AuthorService
 
 
             List<Author> authors = genreId == 0
-                ? GetAllAuthors()
-                : repo.GetAuthorsByGenreId(genreId).ToList();
+                ? GetAllAuthors().Where(author => !author.IsDeleted).ToList()
+                : repo.GetAuthorsByGenreId(genreId).Where(author => !author.IsDeleted).ToList();
 
             return authors;
         }
