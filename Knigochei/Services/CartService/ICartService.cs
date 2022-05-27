@@ -12,6 +12,7 @@ namespace Knigochei.Services.CartService
         public void DeleteFromUserCartByBook(int userId, int bookId);
         public bool IsUserHasCart(int userId);
         public bool ExistsCartItem(int userId, int bookId);
+        public void ClearUserCart(int userId);
         List<CartItem> GetAllCartItemsByCart(int userId);
 
 

@@ -47,9 +47,13 @@ namespace Knigochei.Repository.UserRepo
             throw new NotImplementedException();
         }
 
-        public User Find(int id)
+        public User Find(int userId)
         {
-            throw new NotImplementedException();
+            return Connection.Query<User>(
+                sql: "SELECT * FROM Users u WHERE u.Id = @id",
+                param: new { @id = userId },
+                transaction: Transaction
+            ).FirstOrDefault();
         }
 
         public User FindByEmail(string email)
@@ -79,7 +83,25 @@ namespace Knigochei.Repository.UserRepo
 
         public void Update(User user)
         {
-            throw new NotImplementedException();
+            int res = Connection.ExecuteScalar<int>(
+                sql: "UPDATE Users " +
+                     "SET Email = @email, " +
+                     "UserPassword = @password, " +
+                     "FirstName = @firstName, " +
+                     "LastName = @lastName " +
+                     "WHERE Id = @id;" +
+                     "SELECT SCOPE_IDENTITY();",
+                param: 
+                new 
+                {
+                    @id = user.Id,
+                    @email = user.Email,
+                    @password = user.UserPassword,
+                    @firstName = user.FirstName,
+                    @lastName = user.LastName
+                },
+                transaction: Transaction
+            );
         }
     }
 }

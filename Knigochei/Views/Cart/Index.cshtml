@@ -55,7 +55,7 @@
 			<h4 id="total-price"></h4> <hr>
 			<p> Сформируем заказ: <span>@now.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru"))</span> </p>
 			<p> Отправим заказ:<span> @now.AddDays(7).ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru")) </span> </p>
-			<button class="mt-5 p-2"> Оформить заказ </button>
+			<button class="mt-5 p-2" onclick="creteOrderPage()"> Оформить заказ </button>
 		</div>
 	</div>
 <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -81,6 +81,9 @@
 				}
 			})
 		};
+	function creteOrderPage() {
+		location.href = '@Url.Action("CreateOrder", "Order")';
+	}
 
 	function refreshPage() {
 		document.location.reload();

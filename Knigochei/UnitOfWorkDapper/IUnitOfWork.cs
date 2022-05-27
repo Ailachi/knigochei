@@ -2,6 +2,7 @@
 using Knigochei.Repository.BookRepo;
 using Knigochei.Repository.CartRepo;
 using Knigochei.Repository.GenreRepo;
+using Knigochei.Repository.OrderRepo;
 using Knigochei.Repository.UserRepo;
 
 namespace Knigochei.UnitOfWorkDapper
@@ -13,6 +14,7 @@ namespace Knigochei.UnitOfWorkDapper
         IGenreRepository GenreRepository{ get; set; }
         IUserRepository UserRepository { get; set; }
         ICartRepository CartRepository{ get; set; }
+        IOrderRepository OrderRepository{ get; set; }
         void Commit();
     }
 }

@@ -68,5 +68,21 @@ namespace Knigochei.Services.UserService
             return user;
         }
 
+		public User GetUserById(int id)
+		{
+            IUserRepository repo = _uow.UserRepository;
+            User user = repo.Find(id);
+
+            return user ?? new User();
+        }
+
+		public void EditUser(User user)
+		{
+            IUserRepository repo = _uow.UserRepository;
+            repo.Update(user);
+
+            _uow.Commit();
+
+        }
     }
 }

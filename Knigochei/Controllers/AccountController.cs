@@ -93,8 +93,19 @@ namespace Knigochei.Controllers
         [Authorize(Roles = "Customer,Admin")]
         public IActionResult Profile()
         {
-            return View();
+            int userId = GetUserId();
+            User user = _userService.GetUserById(userId);
+
+
+            return View(user);
         }
+
+        public IActionResult EditProfile(User user)
+		{
+            _userService.EditUser(user);
+
+            return RedirectToAction("Profile", "Account");
+		}
 
         public async Task<IActionResult> LogOut()
         {
@@ -109,7 +120,17 @@ namespace Knigochei.Controllers
             return View();
         }
 
-        
+        public int GetUserId()
+        {
+            string userIdClaimValue = HttpContext.User.Claims
+                .Where(claim => claim.Type == ClaimTypes.NameIdentifier)
+                .Select(claim => claim.Value)
+                .FirstOrDefault();
+
+
+            return Convert.ToInt32(userIdClaimValue);
+        }
+
     }
 
 }

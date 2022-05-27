@@ -1,0 +1,111 @@
+﻿<div class="container-fluid">
+	<div class="row text-center mt-5 mb-5">
+		<div class="col-md-4 ms-5 ps-5">
+			<div class="sign pt-5 pb-3" style="height: fit-content;">
+				<form id="addBook">
+					<h4> Добавить книгу:</h4>
+					<div class="row">
+						<label for="title" class="col-md-1 ms-4">Название:</label>
+						<input type="text" id="title" name="title" class="col-md-8" placeholder="Убить пересмешника">
+					</div>
+					<div class="row">
+						<label for="year" class="col-md-1 ms-4">Год:</label>
+						<input type="text" id="year" name="year" class="col-md-8" placeholder="2000">
+					</div>
+					<div class="row">
+						<label for="genres" class="col-md-1 ms-4">Жанр:</label>
+						<select name="genres" id="genres" class="inp col-md-8">
+							<option value="volvo">Volvo</option>
+						</select>
+					</div>
+					<div class="row">
+						<label for="authorId" class="col-md-1 ms-4">Автор:</label>
+						<select name="authorId" id="authorId" class="inp col-md-8">
+							<option value="volvo">Volvo</option>
+						</select> 
+					</div>
+					<br>
+					<input type="submit" value="Внести">
+				</form>
+			</div>
+			<br>
+			<div class="sign pt-5" style="height: fit-content;"> 
+				<form id="addAuthor" class=" pt-5 pb-5 pb-3">
+					<h3>Добавить автора:</h3> <hr class="mb-3" width="80%" style="margin-left: auto; margin-right: auto;">
+					<div class="row">
+						<label for="name" class="col-md-1 ms-4">Имя:</label>
+						<input type="text" id="name" name="name" class="col-md-8" placeholder="Фёдор">
+					</div>
+					<div class="row">
+						<label for="surname" class="col-md-1 ms-4">Фамилия:</label>
+						<input type="text" id="surname" name="surname" class="col-md-8" placeholder="Достоевский">
+					</div>
+					<div class="row">
+						<label for="text" class="col-md-1 ms-4">Год&nbsp;рождения:</label>
+						<input type="text" id="text" name="text" class="col-md-8" placeholder="2021">
+					</div>
+					<div class="row">
+						<label for="genres" class="col-md-1 ms-4">Пол:</label>
+						<select name="genres" id="genres" class="inp col-md-8">
+							<option value="volvo">Volvo</option>
+						</select>
+					</div>
+					<br> <br>
+					<input type="submit" value="Внести">
+				</form>
+			</div>
+		</div>
+
+		<div class="col-md-6 ms-5">
+			<div id="books">
+				<h3>Книги:</h3>
+				<table class="list p-2">
+					<tr>
+						<th>Название</th>
+						<th>Жанр</th>
+						<th>Автор</th>
+						<th>&nbsp;</th>
+					</tr>
+					<tr>
+						<td>Падение</td>
+						<td>Философия</td>
+						<td>Альбер Камю</td>
+						<td> <button class="del"> Удалить</button> </td>
+					</tr>
+					<tr>
+						<td>Падение</td>
+						<td>Философия</td>
+						<td>Альбер Камю</td>
+						<td> <button class="del"> Удалить</button> </td>
+					</tr>
+				</table>
+			</div>
+			<br> <br>
+
+			<div id="authors">
+				<h3>Авторы:</h3>
+				<table class="list p-2">
+					<tr>
+						<th>Имя</th>
+						<th>Фамилия</th>
+						<th>Дата рождения</th>
+						<th>&nbsp;</th>
+					</tr>
+					<tr>
+						<td>Падение</td>
+						<td>Философия</td>
+						<td>Альбер Камю</td>
+						<td> <button class="del"> Удалить</button> </td>
+					</tr>
+					<tr>
+						<td>Падение</td>
+						<td>Философия</td>
+						<td>Альбер Камю</td>
+						<td> <button class="del"> Удалить</button> </td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</div>

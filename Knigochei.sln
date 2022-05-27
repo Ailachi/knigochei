@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Knigochei", "Knigochei\Knigochei.csproj", "{8258AB03-3B6B-4A06-9515-5487D2185168}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Knigochei", "Knigochei\Knigochei.csproj", "{8258AB03-3B6B-4A06-9515-5487D2185168}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -89,5 +89,15 @@ namespace Knigochei.Services.CartService
             repo.DeleteCartItem(cartItem);
             _uow.Commit();
         }
-    }
+
+		public void ClearUserCart(int userId)
+		{
+            ICartRepository repo = _uow.CartRepository;
+            Cart cart = repo.FindCartByUserId(userId);
+
+            repo.DeleteCartItemsByCartId(cart.Id);
+
+            _uow.Commit();
+        }
+	}
 }

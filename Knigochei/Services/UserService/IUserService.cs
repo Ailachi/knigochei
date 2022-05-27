@@ -7,10 +7,12 @@ namespace Knigochei.Services.UserService
     {
         public List<User> GetAllUsers();
         public User GetUserByEmailAndPassword(string email, string password);
+        public User GetUserById(int id);
         public string GetUserRole(int roleId);
         public bool ExistsByEmail(string email);
         public void CreateNewUser(RegistrationFormModel model);
-        
+        public void EditUser(User user);
+
 
 
 

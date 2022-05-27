@@ -1,0 +1,66 @@
+﻿@model Knigochei.ViewModels.OrderViewModel
+
+
+<div class="container-fluid">
+	<div class="row mb-5 pb-5 mt-5">
+		<div class="col-md-3"></div>
+		<div class="col-md-6 mt-5 pb-5">
+			<div class="sign text-center" style="height: fit-content;">
+				<h3 class="pt-4 text-center pb-5"> Проверьте правильность данных:</h3>
+				<table width="80%" style="margin-right: auto; margin-left: auto;" id="orderTable">
+					<tr class="mb-3">
+						<th>Предмет</th>
+						<th>Кол-во</th>
+						<th>Стоимость</th>
+					</tr>
+					@foreach(var orderItem in Model.OrderItems)
+					{
+						<tr>
+							<td>@orderItem.Book.Title</td>
+							<td>@orderItem.CartItem.Amount</td>
+							<td>@orderItem.TotalAmountPrice</td>
+						</tr>
+					}
+					
+					
+				</table> <br>
+				<div id="info" class="text-center pb-3 pt-3">
+					<span id="total-price" data="@Model.TotalPrice" style="font-weight: bold;"> Итого: @Model.TotalPrice KZT </span> <br>
+					<span>Получатель: @Model.User.FullName </span> <br>
+					<select name="adress" id="address" class="mt-2">
+						<option value="abay">Абая, 90</option>
+						<option value="tole bi">Толе би, 71</option>
+						<option value="timiryazeva">Тимирязева, 41</option>
+						<option value="zhandosova">Жандосова, 1</option>
+					</select> 
+					<br>
+				</div>
+				<button class="mt-4 text-center mb-5 order" onclick="createOrder()"> Оформить&nbsp;заказ</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	function createOrder() {
+		console.log("Pickup address: " + $("#address").val())
+		$.ajax({
+			url: '@Url.Action("CreateOrder", "Order")',
+			method: "POST",
+			data: { 
+				"pickUpAddress": $("#address").val(),
+				"totalPrice": $("#total-price").attr("data")
+			},
+			success: function(data, statusCode) {
+				console.log(data);
+				location.href = '@Url.Action("OrderHistory", "Order")'
+			}, 
+			error: function(errorCode) {
+				alert("Could not create Order!");
+			}
+		})
+	}
+
+
+</script>
+

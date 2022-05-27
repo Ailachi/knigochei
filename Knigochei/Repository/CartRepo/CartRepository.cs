@@ -104,5 +104,14 @@ namespace Knigochei.Repository.CartRepo
                 transaction: Transaction
             );
 		}
-	}
+        public void DeleteCartItemsByCartId(int cartId)
+		{
+            int res = Connection.ExecuteScalar<int>(
+                sql: "DELETE FROM CartItem WHERE CartId = @id",
+                param: new { @id = cartId },
+                transaction: Transaction
+            );
+        }
+
+    }
 }
