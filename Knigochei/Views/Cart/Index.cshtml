@@ -2,25 +2,23 @@
 @using System.Globalization
 
 @{
-	ViewData[жTitleж] = Корзина;
-
 	DateOnly now = DateOnly.FromDateTime(DateTime.Now);
 	
-
+	ViewData["Title"] = "Корзина";
 }
 
 
-<div class=жcontainer-fluidж>
-	<div class=жrow pb-0 mb-0 pt-5 mt-4ж>
-		<div class=жcol-md-8 ms-0ж>
-			<div class=жrow p-2 ms-4ж>
-				<table class=жtext-centerж id=жitemsж>
+<div class="container-fluid">
+	<div class="row pb-0 mb-0 pt-5 mt-4">
+		<div class="col-md-8 ms-0">
+			<div class="row p-2 ms-4">
+				<table class="text-center" id="items">
 					<tr>
-						<th class=жcol-md-2ж>&nbsp;</th>
-						<th class=жcol-md-2ж>Цена:</th>
-						<th class=жcol-md-2ж>Кол-во:</th>
-						<th class=жcol-md-2ж>Стоимость:</th>
-						<th class=жcol-md-2ж>&nbsp;</th>
+						<th class="col-md-2">&nbsp;</th>
+						<th class="col-md-2">Цена:</th>
+						<th class="col-md-2">Кол-во:</th>
+						<th class="col-md-2">Стоимость:</th>
+						<th class="col-md-2">&nbsp;</th>
 					</tr>
 					@foreach(var cartItem in Model)
 					{
@@ -31,124 +29,105 @@
 								<span>
 									@for(int star = 0; star < @cartItem.Book.BookRank; star++)
 									{
-										<i class=жbi bi-star-fillж></i>
+										<i class="bi bi-star-fill"></i>
 									}
 								</span> 
 							</td>
 							<td>
-								<h6 id=жprice-@cartItem.CartItem.BookIdж> @cartItem.Book.Price<span> KZT </span> </h6>
+								<h6 id="price-@cartItem.CartItem.BookId"> @cartItem.Book.Price<span> KZT </span> </h6>
 							</td>
 							<td>  
 								
-								<input type=жnumberж class=жtext-center w-25 amountж id=ж@cartItem.CartItem.BookIdж  name=жamountж value=@cartItem.CartItem.Amount min=1 style=жborder: 1px solid blackж>
+								<input type="number" class="text-center w-25 amount" id="@cartItem.CartItem.BookId"  name="amount" value=@cartItem.CartItem.Amount min=1 style="border: 1px solid black">
 								
 							</td>
 							<td>
-								<h6 id=жtotal-amount-@cartItem.CartItem.BookIdж>@(cartItem.CartItem.Amount * cartItem.Book.Price)<span> KZT </span> </h6>
+								<h6 id="total-amount-@cartItem.CartItem.BookId">@(cartItem.CartItem.Amount * cartItem.Book.Price)<span> KZT </span> </h6>
 							</td>
-							<td> <button class=жdelж onclick=жdeleteCartItem(@cartItem.CartItem.BookId)ж> Удалить </button> </td>
+							<td> <button class="del" onclick="deleteCartItem(@cartItem.CartItem.BookId)"> Удалить </button> </td>
 						</tr>
 					}
 
 				</table>
 			</div>
 		</div>
-		<div class=жcol-md-3 ms-5 pt-4 cartItem text-centerж>
-			<h4 id=жtotal-priceж></h4> <hr>
-			<p> Сформируем заказ: <span>@now.ToString(жdd MMMMж, CultureInfo.CreateSpecificCulture(жruж))</span> </p>
-			<p> Отправим заказ:<span> @now.AddDays(7).ToString(жdd MMMMж, CultureInfo.CreateSpecificCulture(жruж)) </span> </p>
-			<button class=жmt-5 p-2ж onclick=жcreteOrderPage()ж> Оформить заказ </button>
+		<div class="col-md-3 ms-5 pt-4 cartItem text-center">
+			<h4 id="total-price"></h4> <hr>
+			<p> Сформируем заказ: <span>@now.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru"))</span> </p>
+			<p> Отправим заказ:<span> @now.AddDays(7).ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru")) </span> </p>
+			<button class="mt-5 p-2" onclick="creteOrderPage()"> Оформить заказ </button>
 		</div>
 	</div>
 <br> <br> <br> <br> <br> <br> <br> <br> <br>
 
 <script>
-
 	function deleteCartItem(bookId) {
-			console.log('@Url.Action(жDeleteFromCartж, жCartж)')
+			console.log('@Url.Action("DeleteFromCart", "Cart")')
 			$.ajax({
-				url: '@Url.Action(жDeleteFromCartж, жCartж)',
-				method: жDELETEж,
+				url: '@Url.Action("DeleteFromCart", "Cart")',
+				method: "DELETE",
 				data: {
-					жbookIdж:bookId,
+					"bookId":bookId,
 				},
 				success: function(data, statusCode) {
 					console.log(data)
 					refreshPage();
-
 				},
 				error: function(errorCode) {
-					alert(жCould not delete Item From Cart!ж)
+					alert("Could not delete Item From Cart!")
 					
 				}
 			})
 		};
 	function creteOrderPage() {
-		location.href = '@Url.Action(жCreateOrderж, жOrderж)';
+		location.href = '@Url.Action("CreateOrder", "Order")';
 	}
-
 	function refreshPage() {
 		document.location.reload();
 	}
-
-
-
-	$(жdocumentж).ready(function() {
+	$("document").ready(function() {
 		refreshTotalPrice();
-
-
-		$(ж.amountж).change(function() {
+		$(".amount").change(function() {
 			let amount = Number($(this).val());
-
 			if(amount <= 0) {
 				amount = 1;
 				$(this).val(1)
 			}
-			console.log(жItem Changeж)
+			console.log("Item Change")
 			let bookId = $(this).attr('id');
-
-			let price = Number($(ж#price-ж+bookId).text().match(ж[0-9]+ж))
-
+			let price = Number($("#price-"+bookId).text().match("[0-9]+"))
 			
-
 			updateCartItemAmount(bookId, price, amount);
 			
-
 		})
-
 		function refreshTotalPrice() {
 			let total = 0;
-			$(ж.amountж).each(function(index) {
+			$(".amount").each(function(index) {
 				let bookId = $(this).attr('id');
 				let amount = Number($(this).val());
-				let price = Number($(ж#price-ж+bookId).text().match(ж[0-9]+ж))
-
+				let price = Number($("#price-"+bookId).text().match("[0-9]+"))
 				total+=amount*price;
 			})
-
-			$(ж#total-priceж).text(жИтоговая сумма : ж).append(total).append(ж KZTж);
+			$("#total-price").text("Итоговая сумма : ").append(total).append(" KZT");
 		}
-
 		function updateCartItemAmount(bookId, price, amount) {
 			$.ajax({
-				url: '@Url.Action(жUpdateCartItemAmountж, жCartж)',
-				method: жPOSTж,
+				url: '@Url.Action("UpdateCartItemAmount", "Cart")',
+				method: "POST",
 				data: {
-					жBookIdж:bookId,
-					жAmountж:amount
+					"BookId":bookId,
+					"Amount":amount
 				},
 				success: function(data, statusCode) {
-					console.log(жCart Item Amount Updated!ж)
-
-					$(ж#total-amount-ж+bookId).text(price*amount).append(ж KZTж);
+					console.log("Cart Item Amount Updated!")
+					$("#total-amount-"+bookId).text(price*amount).append(" KZT");
 					refreshTotalPrice();
 				},
 				error: function(errorCode) {
-					console.log(жError Updating Amount!ж)
+					console.log("Error Updating Amount!")
 					
 				}
 			})
 		}
-
 	})
 </script>

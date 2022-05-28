@@ -82,6 +82,8 @@ namespace Knigochei.Controllers
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
+            if(userRole == "Admin") return RedirectToAction("Index", "Admin");
+
             return RedirectToAction("Index", "Home");
         }
 

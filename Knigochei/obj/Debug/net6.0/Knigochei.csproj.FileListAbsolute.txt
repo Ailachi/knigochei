@@ -68,3 +68,12 @@ D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\K
 D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.genruntimeconfig.cache
 D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Excel.dll
 D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.csproj.ResolveComReference.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\EPPlus.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\EPPlus.Interfaces.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\System.Drawing.Common.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
