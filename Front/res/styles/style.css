@@ -1,5 +1,4 @@
 * {
-	/*border: 2px solid yellow;*/
 	font-size: 1em;
 }
 /* INDEX PAGE: */
@@ -65,6 +64,10 @@ svg:hover {
 	height: 550px;
 	border-top-left-radius: 300px;
 	border-bottom-left-radius: 300px;
+}
+.roundRight {
+	border-top-right-radius: 450px;
+	border-bottom-right-radius: 450px;
 }
 .parallax {
 	background-image: url('../img/library.jpg');
