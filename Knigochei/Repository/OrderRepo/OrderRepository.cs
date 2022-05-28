@@ -23,7 +23,7 @@ namespace Knigochei.Repository.OrderRepo
 			}
 
 			int res = Connection.ExecuteScalar<int>(
-				sql: "[dbo].[InsertOrderItems]",
+				sql: "[Knigochei].[dbo].[InsertOrderItems]",
 				param: new { @orderItems = dt.AsTableValuedParameter("dbo.OrderItemType") },
 				transaction: Transaction,
 				commandType: CommandType.StoredProcedure
@@ -31,7 +31,15 @@ namespace Knigochei.Repository.OrderRepo
 
 		}
 
-		public void CreateOrder(Order order)
+        public IEnumerable<Order> All()
+        {
+			return Connection.Query<Order>(
+				sql: "SELECT * FROM Orders;",
+				transaction: Transaction
+			);
+        }
+
+        public void CreateOrder(Order order)
 		{
 			order.Id = Connection.ExecuteScalar<int>(
 				sql: "INSERT INTO Orders(TotalPrice, OrderDate, DeliveryDate, PickUpAddress, OrderStatusId, UserId) " +

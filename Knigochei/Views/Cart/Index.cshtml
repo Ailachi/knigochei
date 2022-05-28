@@ -2,23 +2,25 @@
 @using System.Globalization
 
 @{
+	ViewData[жTitleж] = Корзина;
+
 	DateOnly now = DateOnly.FromDateTime(DateTime.Now);
 	
 
 }
 
 
-<div class="container-fluid">
-	<div class="row pb-0 mb-0 pt-5 mt-4">
-		<div class="col-md-8 ms-0">
-			<div class="row p-2 ms-4">
-				<table class="text-center" id="items">
+<div class=жcontainer-fluidж>
+	<div class=жrow pb-0 mb-0 pt-5 mt-4ж>
+		<div class=жcol-md-8 ms-0ж>
+			<div class=жrow p-2 ms-4ж>
+				<table class=жtext-centerж id=жitemsж>
 					<tr>
-						<th class="col-md-2">&nbsp;</th>
-						<th class="col-md-2">Цена:</th>
-						<th class="col-md-2">Кол-во:</th>
-						<th class="col-md-2">Стоимость:</th>
-						<th class="col-md-2">&nbsp;</th>
+						<th class=жcol-md-2ж>&nbsp;</th>
+						<th class=жcol-md-2ж>Цена:</th>
+						<th class=жcol-md-2ж>Кол-во:</th>
+						<th class=жcol-md-2ж>Стоимость:</th>
+						<th class=жcol-md-2ж>&nbsp;</th>
 					</tr>
 					@foreach(var cartItem in Model)
 					{
@@ -29,33 +31,33 @@
 								<span>
 									@for(int star = 0; star < @cartItem.Book.BookRank; star++)
 									{
-										<i class="bi bi-star-fill"></i>
+										<i class=жbi bi-star-fillж></i>
 									}
 								</span> 
 							</td>
 							<td>
-								<h6 id="price-@cartItem.CartItem.BookId"> @cartItem.Book.Price<span> KZT </span> </h6>
+								<h6 id=жprice-@cartItem.CartItem.BookIdж> @cartItem.Book.Price<span> KZT </span> </h6>
 							</td>
 							<td>  
 								
-								<input type="number" class="text-center w-25 amount" id="@cartItem.CartItem.BookId"  name="amount" value=@cartItem.CartItem.Amount min=1 style="border: 1px solid black">
+								<input type=жnumberж class=жtext-center w-25 amountж id=ж@cartItem.CartItem.BookIdж  name=жamountж value=@cartItem.CartItem.Amount min=1 style=жborder: 1px solid blackж>
 								
 							</td>
 							<td>
-								<h6 id="total-amount-@cartItem.CartItem.BookId">@(cartItem.CartItem.Amount * cartItem.Book.Price)<span> KZT </span> </h6>
+								<h6 id=жtotal-amount-@cartItem.CartItem.BookIdж>@(cartItem.CartItem.Amount * cartItem.Book.Price)<span> KZT </span> </h6>
 							</td>
-							<td> <button class="del" onclick="deleteCartItem(@cartItem.CartItem.BookId)"> Удалить </button> </td>
+							<td> <button class=жdelж onclick=жdeleteCartItem(@cartItem.CartItem.BookId)ж> Удалить </button> </td>
 						</tr>
 					}
 
 				</table>
 			</div>
 		</div>
-		<div class="col-md-3 ms-5 pt-4 cartItem text-center">
-			<h4 id="total-price"></h4> <hr>
-			<p> Сформируем заказ: <span>@now.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru"))</span> </p>
-			<p> Отправим заказ:<span> @now.AddDays(7).ToString("dd MMMM", CultureInfo.CreateSpecificCulture("ru")) </span> </p>
-			<button class="mt-5 p-2" onclick="creteOrderPage()"> Оформить заказ </button>
+		<div class=жcol-md-3 ms-5 pt-4 cartItem text-centerж>
+			<h4 id=жtotal-priceж></h4> <hr>
+			<p> Сформируем заказ: <span>@now.ToString(жdd MMMMж, CultureInfo.CreateSpecificCulture(жruж))</span> </p>
+			<p> Отправим заказ:<span> @now.AddDays(7).ToString(жdd MMMMж, CultureInfo.CreateSpecificCulture(жruж)) </span> </p>
+			<button class=жmt-5 p-2ж onclick=жcreteOrderPage()ж> Оформить заказ </button>
 		</div>
 	</div>
 <br> <br> <br> <br> <br> <br> <br> <br> <br>
@@ -63,12 +65,12 @@
 <script>
 
 	function deleteCartItem(bookId) {
-			console.log('@Url.Action("DeleteFromCart", "Cart")')
+			console.log('@Url.Action(жDeleteFromCartж, жCartж)')
 			$.ajax({
-				url: '@Url.Action("DeleteFromCart", "Cart")',
-				method: "DELETE",
+				url: '@Url.Action(жDeleteFromCartж, жCartж)',
+				method: жDELETEж,
 				data: {
-					"bookId":bookId,
+					жbookIdж:bookId,
 				},
 				success: function(data, statusCode) {
 					console.log(data)
@@ -76,13 +78,13 @@
 
 				},
 				error: function(errorCode) {
-					alert("Could not delete Item From Cart!")
+					alert(жCould not delete Item From Cart!ж)
 					
 				}
 			})
 		};
 	function creteOrderPage() {
-		location.href = '@Url.Action("CreateOrder", "Order")';
+		location.href = '@Url.Action(жCreateOrderж, жOrderж)';
 	}
 
 	function refreshPage() {
@@ -91,21 +93,21 @@
 
 
 
-	$("document").ready(function() {
+	$(жdocumentж).ready(function() {
 		refreshTotalPrice();
 
 
-		$(".amount").change(function() {
+		$(ж.amountж).change(function() {
 			let amount = Number($(this).val());
 
 			if(amount <= 0) {
 				amount = 1;
 				$(this).val(1)
 			}
-			console.log("Item Change")
+			console.log(жItem Changeж)
 			let bookId = $(this).attr('id');
 
-			let price = Number($("#price-"+bookId).text().match("[0-9]+"))
+			let price = Number($(ж#price-ж+bookId).text().match(ж[0-9]+ж))
 
 			
 
@@ -116,33 +118,33 @@
 
 		function refreshTotalPrice() {
 			let total = 0;
-			$(".amount").each(function(index) {
+			$(ж.amountж).each(function(index) {
 				let bookId = $(this).attr('id');
 				let amount = Number($(this).val());
-				let price = Number($("#price-"+bookId).text().match("[0-9]+"))
+				let price = Number($(ж#price-ж+bookId).text().match(ж[0-9]+ж))
 
 				total+=amount*price;
 			})
 
-			$("#total-price").text("Итоговая сумма : ").append(total).append(" KZT");
+			$(ж#total-priceж).text(жИтоговая сумма : ж).append(total).append(ж KZTж);
 		}
 
 		function updateCartItemAmount(bookId, price, amount) {
 			$.ajax({
-				url: '@Url.Action("UpdateCartItemAmount", "Cart")',
-				method: "POST",
+				url: '@Url.Action(жUpdateCartItemAmountж, жCartж)',
+				method: жPOSTж,
 				data: {
-					"BookId":bookId,
-					"Amount":amount
+					жBookIdж:bookId,
+					жAmountж:amount
 				},
 				success: function(data, statusCode) {
-					console.log("Cart Item Amount Updated!")
+					console.log(жCart Item Amount Updated!ж)
 
-					$("#total-amount-"+bookId).text(price*amount).append(" KZT");
+					$(ж#total-amount-ж+bookId).text(price*amount).append(ж KZTж);
 					refreshTotalPrice();
 				},
 				error: function(errorCode) {
-					console.log("Error Updating Amount!")
+					console.log(жError Updating Amount!ж)
 					
 				}
 			})

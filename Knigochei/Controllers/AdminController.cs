@@ -3,6 +3,7 @@ using Knigochei.Services.AuthorService;
 using Knigochei.Services.BookService;
 using Knigochei.Services.CartService;
 using Knigochei.Services.GenreService;
+using Knigochei.Services.OrderService;
 using Knigochei.Services.UserService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -16,14 +17,20 @@ namespace Knigochei.Controllers
 		private ICartService _cartService;
 		private IAuthorService _authorService;
 		private IGenreService _genreService;
+		private IOrderService _orderService;
 
 
-		public AdminController(IBookService bookService, IAuthorService authorService, IGenreService genreService, ICartService cartService)
+		public AdminController(
+			IBookService bookService, IAuthorService authorService, 
+			IGenreService genreService, ICartService cartService,
+			IOrderService orderService
+		)
         {
 			_bookService = bookService;
 			_authorService = authorService;
 			_genreService = genreService;
 			_cartService = cartService;
+			_orderService = orderService;
         }
 		public IActionResult Index()
 		{
@@ -40,6 +47,19 @@ namespace Knigochei.Controllers
 
 			return View();
 		}
+
+		public IActionResult OrderReport()
+        {
+			string fileName = "ordersReport.xlsx";
+			List<Order> orders = _orderService.GetAllOrders();
+			//String path = Path.Combine(Environment.WebRootPath, "reports/") + fileName;
+			//_orderService.SaveOrdersInExcel(orders, Environment.WebRootPath);
+
+
+			return View("Index");
+
+			//return File(bytes, "application/octet-stream", fileName);
+        }
 
 		[HttpPost]
 		public IActionResult AddAuthor(Author author, int birthYear)

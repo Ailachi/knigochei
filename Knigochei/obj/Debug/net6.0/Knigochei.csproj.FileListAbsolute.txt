@@ -66,3 +66,5 @@ D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\K
 D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\ref\Knigochei.dll
 D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.pdb
 D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.genruntimeconfig.cache
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Interop.Microsoft.Office.Interop.Excel.dll
+D:\3rd Course\2nd semester\Application development foundation (.NET)\Knigochei\Knigochei\obj\Debug\net6.0\Knigochei.csproj.ResolveComReference.cache

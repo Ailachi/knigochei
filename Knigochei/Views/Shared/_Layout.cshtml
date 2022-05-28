@@ -33,18 +33,36 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNav">
 					<ul class="navbar-nav">
-						<li class="nav-item">
-							<a class="nav-link @Html.ActiveClass("Home", "Index")" aria-current="page" asp-controller="Home" asp-action="Index">Главная</a>
-						</li>
+						@if(User.IsInRole("Admin"))
+						{
+							<li class="nav-item">
+								<a class="nav-link @Html.ActiveClass("Admin", "Index")" aria-current="page" asp-controller="Admin" asp-action="Index">Панель Управления</a>
+							</li>
+						} else
+						{
+							<li class="nav-item">
+								<a class="nav-link @Html.ActiveClass("Home", "Index")" aria-current="page" asp-controller="Home" asp-action="Index">Главная</a>
+							</li>
+						}
+
 						<li class="nav-item">
 							<a class="nav-link @Html.ActiveClass("Catalog", "Index")" asp-controller="Catalog" asp-action="Index">Каталог</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link @Html.ActiveClass("Author", "Index")" asp-controller="Author" asp-action="Index">Авторы</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link @Html.ActiveClass("Home", "About")" asp-controller="Home" asp-action="About">О&nbsp;нас</a>
-						</li>
+						@if(User.IsInRole("Admin"))
+						{
+							<li class="nav-item">
+								<a class="nav-link @Html.ActiveClass("Home", "About")" asp-controller="Admin" asp-action="OrderReport">Отчет&nbsp;по&nbsp;заказам</a>
+							</li>
+						} else
+						{
+							<li class="nav-item">
+								<a class="nav-link @Html.ActiveClass("Home", "About")" asp-controller="Home" asp-action="About">О&nbsp;нас</a>
+							</li>
+						}
+						
 						<li class="nav-item @Html.ActiveClass("Cart", "Index")" id="pre-right">
 							<a class="nav-link" asp-controller="Cart" asp-action="Index">
 								<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" class="bi bi-basket2-fill" viewBox="0 0 16 16">
